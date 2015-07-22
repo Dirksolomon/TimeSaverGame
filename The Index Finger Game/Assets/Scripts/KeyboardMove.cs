@@ -31,7 +31,7 @@ public class KeyboardMove : MonoBehaviour {
 		//If player dies it blows up the player object
 		if (dead)
 		{
-			Destroy(gameObject);
+			gameObject.SetActive(false);
 			//deathcooldown -= Time.deltaTime;
 			//if(deathcooldown <= 0)
 			//{
