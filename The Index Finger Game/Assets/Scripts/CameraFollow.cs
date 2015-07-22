@@ -13,6 +13,8 @@ public class CameraFollow : MonoBehaviour {
 
 	public bool Following {get; set;}
 
+	public GameObject panel;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -47,5 +49,29 @@ public class CameraFollow : MonoBehaviour {
 
 			transform.position = new Vector3 (x, y, transform.position.z);
 		}
+		//Keeps checking if stuff in PauseMenu(); is happening
+		PauseMenu ();
+	}
+	public void PauseMenu()
+	{
+		//With escape key opens up the pause menu and pauses the game
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			Time.timeScale = 0;
+			panel.SetActive(true);
+		}
+	}
+	//Button is linked to this and when pressing continue in the pause menu it continues the game
+	public void ResumeGame()
+	{
+		Time.timeScale = 1;
+		panel.SetActive(false);
+	}
+	public void ExitGame()
+	{
+		Application.Quit ();
+	}
+	public void EnterMenu()
+	{
+		Application.LoadLevel ("0_Menu");
 	}
 }
