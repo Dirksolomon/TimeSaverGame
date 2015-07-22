@@ -1,0 +1,869 @@
+fileFormatVersion: 2
+guid: 1e29926ed31351544a8dc87633ed84a1
+timeCreated: 1436955256
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: WOTGspiderman_0
+    21300002: WOTGspiderman_1
+    21300004: WOTGspiderman_2
+    21300006: WOTGspiderman_3
+    21300008: WOTGspiderman_4
+    21300010: WOTGspiderman_5
+    21300012: WOTGspiderman_6
+    21300014: WOTGspiderman_7
+    21300016: WOTGspiderman_8
+    21300018: WOTGspiderman_9
+    21300020: WOTGspiderman_10
+    21300022: WOTGspiderman_11
+    21300024: WOTGspiderman_12
+    21300026: WOTGspiderman_13
+    21300028: WOTGspiderman_14
+    21300030: WOTGspiderman_15
+    21300032: WOTGspiderman_16
+    21300034: WOTGspiderman_17
+    21300036: WOTGspiderman_18
+    21300038: WOTGspiderman_19
+    21300040: WOTGspiderman_20
+    21300042: WOTGspiderman_21
+    21300044: WOTGspiderman_22
+    21300046: WOTGspiderman_23
+    21300048: WOTGspiderman_24
+    21300050: WOTGspiderman_25
+    21300052: WOTGspiderman_26
+    21300054: WOTGspiderman_27
+    21300056: WOTGspiderman_28
+    21300058: WOTGspiderman_29
+    21300060: WOTGspiderman_30
+    21300062: WOTGspiderman_31
+    21300064: WOTGspiderman_32
+    21300066: WOTGspiderman_33
+    21300068: WOTGspiderman_34
+    21300070: WOTGspiderman_35
+    21300072: WOTGspiderman_36
+    21300074: WOTGspiderman_37
+    21300076: WOTGspiderman_38
+    21300078: WOTGspiderman_39
+    21300080: WOTGspiderman_40
+    21300082: WOTGspiderman_41
+    21300084: WOTGspiderman_42
+    21300086: WOTGspiderman_43
+    21300088: WOTGspiderman_44
+    21300090: WOTGspiderman_45
+    21300092: WOTGspiderman_46
+    21300094: WOTGspiderman_47
+    21300096: WOTGspiderman_48
+    21300098: WOTGspiderman_49
+    21300100: WOTGspiderman_50
+    21300102: WOTGspiderman_51
+    21300104: WOTGspiderman_52
+    21300106: WOTGspiderman_53
+    21300108: WOTGspiderman_54
+    21300110: WOTGspiderman_55
+    21300112: WOTGspiderman_56
+    21300114: WOTGspiderman_57
+    21300116: WOTGspiderman_58
+    21300118: WOTGspiderman_59
+    21300120: WOTGspiderman_60
+    21300122: WOTGspiderman_61
+    21300124: WOTGspiderman_62
+    21300126: WOTGspiderman_63
+    21300128: WOTGspiderman_64
+    21300130: WOTGspiderman_65
+    21300132: WOTGspiderman_66
+    21300134: WOTGspiderman_67
+    21300136: WOTGspiderman_68
+    21300138: WOTGspiderman_69
+    21300140: WOTGspiderman_70
+    21300142: WOTGspiderman_71
+    21300144: WOTGspiderman_72
+    21300146: WOTGspiderman_73
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: WOTGspiderman_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 379
+        width: 88
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 387
+        width: 50
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 385
+        width: 45
+        height: 56
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 385
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_4
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 388
+        width: 53
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_5
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 390
+        width: 66
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_6
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 387
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_7
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 388
+        width: 59
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_8
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 381
+        width: 64
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_9
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 378
+        width: 28
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_10
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 398
+        width: 26
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_11
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 276
+        width: 102
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_12
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 283
+        width: 43
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_13
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 316
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_14
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 306
+        width: 44
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_15
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 321
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_16
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 321
+        width: 73
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_17
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 289
+        width: 28
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_18
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 329
+        width: 26
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_19
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 206
+        width: 44
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_20
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 210
+        width: 41
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_21
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 213
+        width: 41
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_22
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 212
+        width: 39
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_23
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 211
+        width: 40
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_24
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 213
+        width: 51
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_25
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 218
+        width: 60
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_26
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 202
+        width: 28
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_27
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 254
+        width: 26
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_28
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 215
+        width: 65
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_29
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 217
+        width: 71
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_30
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 215
+        width: 39
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_31
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 186
+        width: 26
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_32
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 148
+        width: 41
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_33
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 145
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_34
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 147
+        width: 56
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_35
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 145
+        width: 53
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_36
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 152
+        width: 61
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_37
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 147
+        width: 79
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_38
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 150
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_39
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 130
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_40
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 117
+        width: 29
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_41
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 5
+        width: 64
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_42
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 13
+        width: 76
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_43
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 20
+        width: 55
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_44
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 17
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_45
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 19
+        width: 40
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_46
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 23
+        width: 56
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_47
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 34
+        width: 60
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_48
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 80
+        width: 48
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_49
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 79
+        width: 62
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_50
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 87
+        width: 27
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_51
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 43
+        width: 26
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_52
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 25
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_53
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 10
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_54
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 7
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_55
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 7
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_56
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 10
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_57
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 10
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_58
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 10
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_59
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 7
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_60
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 10
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_61
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 10
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_62
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 10
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_63
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 10
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_64
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 10
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_65
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 10
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_66
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 10
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_67
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 10
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_68
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 10
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_69
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 7
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_70
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 10
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_71
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 10
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_72
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 10
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: WOTGspiderman_73
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 7
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
