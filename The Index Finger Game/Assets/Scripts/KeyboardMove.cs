@@ -1,5 +1,8 @@
 ﻿/*
-	Mikko is responsible for editing.
+	Mikko is responsible for editing!
+
+	Movements and collisions.
+	Updated 2015-7-22 12:16
 */
 
 using UnityEngine;
@@ -8,7 +11,7 @@ using System.Collections;
 public class KeyboardMove : MonoBehaviour {
 
 	public float speed; // speed
-	public float jump;
+	public float jump; // jump
 	public float maxspeed; // maximum speed
 	public bool isJumping; // is now performing jump
 	public bool isCrouching; // is now performing crouch
@@ -16,7 +19,7 @@ public class KeyboardMove : MonoBehaviour {
 	private Rigidbody2D rb2d;
 	private Animator animator;
 	public static bool dead=false;
-	public static float deathcooldown;
+	//public static float deathcooldown;
 	private BoxCollider2D b;
 
 	// Actions to perform in the beginning
@@ -52,12 +55,10 @@ public class KeyboardMove : MonoBehaviour {
 		animator.SetFloat("Movespeed",Mathf.Abs(Input.GetAxis("Horizontal")));
 
 		// Turns the player around depending on input
-		if(Input.GetAxis("Horizontal")<-0.01f) 
-		{
+		if(Input.GetAxis("Horizontal")<-0.01f){
 			transform.localScale = new Vector2(-1,1);
 		}
-		if(Input.GetAxis ("Horizontal")>0.01f)
-		{
+		if(Input.GetAxis ("Horizontal")>0.01f){
 			transform.localScale = new Vector2(1,1);
 		}
 
@@ -87,7 +88,9 @@ public class KeyboardMove : MonoBehaviour {
 				&& isJumping==false // do not jump if already jumping
 			){
 
-					//velocity(Vector2.up*Time.deltaTime*jump);
+				// We need to stop jump on collision!!!
+
+				//rb2d.velocity(Vector2.up*Time.deltaTime*jump);
 				rb2d.AddForce(Vector2.up*jump);
 				//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
 				if(isCrouching==true){
@@ -145,19 +148,16 @@ public class KeyboardMove : MonoBehaviour {
 	// Checks if the player bumps into something specific.
 	void OnCollisionEnter2D(Collision2D col)
 	{
+		isJumping=false;
+		if(col.gameObject.tag!="Ground")
+			print ("Player met "+col.gameObject.name);
+
 		// Enables jumping key and removes animation of jumping when touching ground
-		if(col.gameObject.tag=="Ground"){
-			if(isJumping==true){
-				isJumping=false;
-				print ("I landed!");
-			}
-		}
+		//if(col.gameObject.tag=="Ground" && isJumping==true)
 
 		//Checks if player hits hazard object, killing the character
 		else if(col.gameObject.tag=="Hazard"){
 			dead=true;
 		}
-
-		else rb2d.AddForce((Vector2.up*speed)*0);
 	}
 }

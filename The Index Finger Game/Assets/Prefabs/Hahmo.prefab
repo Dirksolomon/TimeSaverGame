@@ -10,7 +10,6 @@ GameObject:
   - 4: {fileID: 422098}
   - 212: {fileID: 21298700}
   - 95: {fileID: 9548410}
-  - 114: {fileID: 11406324}
   - 50: {fileID: 5015714}
   - 61: {fileID: 6124876}
   - 114: {fileID: 11420422}
@@ -78,25 +77,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11406324
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 197840}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b56cc9d353c67342ba8f1067674145d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: {x: 0, y: 0}
-  hups: {x: 0, y: 0}
-  liikkuu: 0
-  liikkuuhoriz: {x: 0, y: 0}
-  maksiminopeus: 3
-  jumpHeight: 1000
-  movespeed: 50
-  isJumping: 0
 --- !u!114 &11420422
 MonoBehaviour:
   m_ObjectHideFlags: 1

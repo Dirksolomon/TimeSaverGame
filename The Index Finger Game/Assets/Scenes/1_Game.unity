@@ -156,6 +156,10 @@ Prefab:
       propertyPath: m_Name
       value: Katto (1) 2
       objectReference: {fileID: 0}
+    - target: {fileID: 108432, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6878970, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
@@ -284,6 +288,14 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 13.8752127
       objectReference: {fileID: 0}
+    - target: {fileID: 181204, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 181204, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
+      propertyPath: m_Name
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
   m_IsPrefabParent: 0
@@ -333,6 +345,10 @@ Prefab:
     - target: {fileID: 441160, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_LocalScale.x
       value: 2.38732362
+      objectReference: {fileID: 0}
+    - target: {fileID: 108432, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6878970, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
@@ -495,7 +511,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437864, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.01000023
+      value: 5.46000004
       objectReference: {fileID: 0}
     - target: {fileID: 437864, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -519,7 +535,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437864, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6887584, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_Material
@@ -532,6 +548,10 @@ Prefab:
     - target: {fileID: 181204, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_Name
       value: Katto 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 181204, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
@@ -658,7 +678,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437864, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.01000023
+      value: 5.46999979
       objectReference: {fileID: 0}
     - target: {fileID: 437864, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -682,7 +702,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 437864, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6887584, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_Material
@@ -694,7 +714,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 181204, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
       propertyPath: m_Name
-      value: Katto 1
+      value: Ground_v 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 181204, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 276ab5b443d23d443843acc5683c0fcb, type: 2}
@@ -958,6 +982,10 @@ Prefab:
     - target: {fileID: 108432, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_Name
       value: Katto (1) 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 108432, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6878970, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
