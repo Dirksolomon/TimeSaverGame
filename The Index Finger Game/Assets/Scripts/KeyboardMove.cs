@@ -65,42 +65,42 @@ public class KeyboardMove : MonoBehaviour {
 	}
 	void FixedUpdate()
 	{
-		//Movement
-		float h=Input.GetAxis("Horizontal");
-
-		rb2d.AddForce((Vector2.right*speed)*h*20);
-
+		// Horizontal movement
+		float h = Input.GetAxis ("Horizontal");
+		
+		rb2d.AddForce ((Vector2.right * speed) * h * 20);
+		//rb2d.velocity=Vector2.right*h*speed;
+		//rb2d.velocity = Vector2.up * 0;
+		
 		/*
-		if (h<0)
-			transform.Translate(-Vector2.right*Time.deltaTime*speed);
-		else if(h>0)
-			transform.Translate(Vector2.right*Time.deltaTime*speed);
-		*/
+			if (h<0)
+				transform.Translate(-Vector2.right*Time.deltaTime*speed);
+			else if(h>0)
+				transform.Translate(Vector2.right*Time.deltaTime*speed);
+			*/
 
 		// Jumping
-		if(isJumping==false){
-			if(
-				(
-					Input.GetKey(KeyCode.W) || // if user presses W
-					Input.GetKey(KeyCode.UpArrow) || // if user presses arrow UP
-			 		Input.GetKey(KeyCode.Space) // if user presses Spacebar
-				)
-				&& isJumping==false // do not jump if already jumping
-			){
+		if (
+			isJumping == false && // do not jump if already jumping
+			(
+				Input.GetKey (KeyCode.W) || // if user presses W
+				Input.GetKey (KeyCode.UpArrow) || // if user presses arrow UP
+				Input.GetKey (KeyCode.Space) // if user presses Spacebar
+			)
+		) {
 
-				// We need to stop jump on collision!!!
+			//rb2d.AddForce(Vector2.up*jump);
 
-				//rb2d.velocity(Vector2.up*Time.deltaTime*jump);
-				rb2d.AddForce(Vector2.up*jump);
-				//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
-				if(isCrouching==true){
 
-					rb2d.AddForce(Vector2.up*jump*0.3f);
-					//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
-				}
-				isCrouching=false;
-				isJumping=true;
-			}
+			//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
+			if (isCrouching == true) {
+
+				rb2d.velocity = Vector2.up * jump * 1.3f;
+				//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
+			} else
+				rb2d.velocity = Vector2.up * jump;
+			isCrouching = false;
+			isJumping = true;
 		}
 
 		// Checking some speed so the player does not fly off the screen, limiting it to certain number
@@ -156,7 +156,7 @@ public class KeyboardMove : MonoBehaviour {
 		//if(col.gameObject.tag=="Ground" && isJumping==true)
 
 		//Checks if player hits hazard object, killing the character
-		else if(col.gameObject.tag=="Hazard"){
+		if(col.gameObject.tag=="Hazard"){
 			dead=true;
 		}
 	}
