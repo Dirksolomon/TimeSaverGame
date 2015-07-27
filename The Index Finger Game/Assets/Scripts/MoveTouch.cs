@@ -8,7 +8,7 @@ public class MoveTouch : TouchMessage {
 	public Vector3 hups;
 	public Vector3 moving;
 	public Vector3 movinghoriz;
-	bool jump = false;
+	//bool jump = false;
 	bool moveleft = false;
 	bool moveright = false;
 	public float maxspeed = 5f;
@@ -22,11 +22,11 @@ public class MoveTouch : TouchMessage {
 	{
 		if (TouchMessage.jump == 1) 
 		{
-			jump = true;
+			//jump = true;
 		}
 		if (TouchMessage.jump == 0) 
 		{
-			jump = false;
+			//jump = false;
 		}
 		if (TouchMessage.left == 1) 
 		{
@@ -42,6 +42,7 @@ public class MoveTouch : TouchMessage {
 	void FixedUpdate () {
 		velocity += gravity * Time.deltaTime;
 		velocity += moving * Time.deltaTime;
+		/*
 		if (jump == true) 
 		{
 			velocity.y += hups.y;
@@ -52,6 +53,7 @@ public class MoveTouch : TouchMessage {
 			velocity.x += 1f;
 			
 		}
+		*/
 		if (moveleft == true) 
 		{
 			moveleft = false;

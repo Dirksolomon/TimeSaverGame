@@ -66,7 +66,7 @@ public class Liikebackup : MouseButton {
 		if (hyppy == true) {
 			velocity.y += hups.y;
 		}
-		if (hyppy = false) {
+		if (hyppy == false) {
 			velocity.y -= hups.y;
 			velocity.x += 5f;
 			

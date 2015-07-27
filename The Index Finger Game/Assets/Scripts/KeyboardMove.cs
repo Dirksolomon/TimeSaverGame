@@ -2,7 +2,7 @@
 	Mikko is responsible for editing!
 
 	Movements and collisions.
-	Updated 2015-7-22 12:16
+	Updated 2015-7-27 9:45
 */
 
 using UnityEngine;
@@ -15,6 +15,8 @@ public class KeyboardMove : MonoBehaviour {
 	public float maxspeed; // maximum speed
 	public bool isJumping; // is now performing jump
 	public bool isCrouching; // is now performing crouch
+	public bool isHidable; // can hide in shadow
+	public bool isHiding=false; // is hidig now
 
 	private Rigidbody2D rb2d;
 	private Animator animator;
@@ -26,7 +28,7 @@ public class KeyboardMove : MonoBehaviour {
 	void Start(){
 
 		// Makes player not dead and also places few gameobjects into variables
-		dead=false;
+		//dead=false;
 
 		rb2d=gameObject.GetComponent<Rigidbody2D>();
 		animator=gameObject.GetComponent<Animator>();
@@ -36,29 +38,20 @@ public class KeyboardMove : MonoBehaviour {
 	// Update is called once per frame
 	void Update(){
 
-		//If player dies it blows up the player object
-		if(dead){
-			gameObject.SetActive(false);
-			//deathcooldown -= Time.deltaTime;
-			//if(deathcooldown <= 0)
-			//{
-			//	if(Input.GetMouseButtonDown(0))
-			//	{
-			//		Application.LoadLevel(Application.loadedLevel);
-			//	}
-				
-			//}
-		}
 		// Checks if certain animation has to be played with isJumping bool and speed of the character
 		animator.SetBool("isJumping",isJumping);
 		//animator.SetBool ("isCrouching", isCrouching);
 		animator.SetFloat("Movespeed",Mathf.Abs(Input.GetAxis("Horizontal")));
 
+		//animator.SetBool("isCrouching",isCrouching);
+
+		//animator.SetBool("isHiding",isHiding);
+
 		// Turns the player around depending on input
 		if(Input.GetAxis("Horizontal")<-0.01f){
 			transform.localScale = new Vector2(-1,1);
 		}
-		if(Input.GetAxis ("Horizontal")>0.01f){
+		if(Input.GetAxis("Horizontal")>0.01f){
 			transform.localScale = new Vector2(1,1);
 		}
 
@@ -66,9 +59,16 @@ public class KeyboardMove : MonoBehaviour {
 	void FixedUpdate()
 	{
 		// Horizontal movement
-		float h = Input.GetAxis ("Horizontal");
-		
-		rb2d.AddForce ((Vector2.right * speed) * h * 20);
+		float h=Input.GetAxis("Horizontal");
+
+		/*
+		if (Input.GetKey (KeyCode.LeftArrow))
+			rb2d.velocity = -Vector2.right*speed;
+		if (Input.GetKey (KeyCode.RightArrow))
+			rb2d.velocity = Vector2.right*speed;
+		*/
+
+		rb2d.AddForce((Vector2.right*speed)*h*20);
 		//rb2d.velocity=Vector2.right*h*speed;
 		//rb2d.velocity = Vector2.up * 0;
 		
@@ -79,28 +79,42 @@ public class KeyboardMove : MonoBehaviour {
 				transform.Translate(Vector2.right*Time.deltaTime*speed);
 			*/
 
-		// Jumping
-		if (
+		// Jumping (or hiding!)
+		if(
 			isJumping == false && // do not jump if already jumping
 			(
-				Input.GetKey (KeyCode.W) || // if user presses W
-				Input.GetKey (KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKey (KeyCode.Space) // if user presses Spacebar
+				Input.GetKey(KeyCode.W) || // if user presses W
+				Input.GetKey(KeyCode.UpArrow) || // if user presses arrow UP
+				Input.GetKey(KeyCode.Space) // if user presses Spacebar
 			)
-		) {
+		){
+			/*
 
-			//rb2d.AddForce(Vector2.up*jump);
+			// the first action to try is hiding
+			if(isHidable){
+				isHidden=true;
+				print ("Hidden!");
+			}
+			// if hiding was not done, jump (if there is nothing above)
+			else
 
+			*/
+			if(!Physics2D.Raycast(transform.position,Vector2.up,0.4f)){
+				//rb2d.AddForce(Vector2.up*jump);
+				//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
 
-			//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
-			if (isCrouching == true) {
+				// jumping from crouching position is higher
+				if(isCrouching==true){
+					rb2d.velocity = Vector2.up * jump * 1.3f;
+					//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
+				}
 
-				rb2d.velocity = Vector2.up * jump * 1.3f;
-				//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
-			} else
-				rb2d.velocity = Vector2.up * jump;
-			isCrouching = false;
-			isJumping = true;
+				// usual jump
+				else rb2d.velocity = Vector2.up * jump;
+
+				isCrouching = false;
+				isJumping = true;
+			}
 		}
 
 		// Checking some speed so the player does not fly off the screen, limiting it to certain number
@@ -127,8 +141,8 @@ public class KeyboardMove : MonoBehaviour {
 				Input.GetKey(KeyCode.DownArrow) ||
 				Input.GetKey(KeyCode.LeftControl)
 			) &&
-			!Physics2D.Raycast(transform.position,Vector2.up,0.4f))
-		{
+			!Physics2D.Raycast(transform.position,Vector2.up,0.4f)
+		){
 			Stand();
 		}
 	}
@@ -142,16 +156,33 @@ public class KeyboardMove : MonoBehaviour {
 
 	// Standing up code, makes the boxcollider normal sized again
 	void Stand(){
-			b.size=new Vector2(0.44f,0.6f);
+		b.size=new Vector2(0.44f,0.6f);
+		isCrouching=false;
 	}
 
 	// Checks if the player bumps into something specific.
 	void OnCollisionEnter2D(Collision2D col)
 	{
-		isJumping=false;
+
+		//print (col.gameObject.layer);
+		// we landed
+		if (col.gameObject.tag == "Ground"){
+			isJumping = false; // top surface of elements is ground
+			//print ("landed on the ground");
+		}
+		/*
 		if(col.gameObject.tag!="Ground")
 			print ("Player met "+col.gameObject.name);
-
+		*/
+		// can hide if there is shadow
+		if (col.gameObject.tag == "Shadow") {
+			isHidable = true;
+			//print ("It is possible to hide here!");
+		}
+		if (col.gameObject.tag != "Shadow") {
+			isHidable = false;
+			//print ("It is not possible to hide here!");
+		}
 		// Enables jumping key and removes animation of jumping when touching ground
 		//if(col.gameObject.tag=="Ground" && isJumping==true)
 

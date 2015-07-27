@@ -16,8 +16,7 @@ public class CameraFollow : MonoBehaviour {
 	public GameObject panel;
 
 	// Use this for initialization
-	void Start () 
-	{
+	void Start (){
 		//Sets variables for max and min bounds which camera cannot follow past and sets following bool to true so it follows
 		_min = Bounds.bounds.min;
 		_max = Bounds.bounds.max;
@@ -52,26 +51,32 @@ public class CameraFollow : MonoBehaviour {
 		//Keeps checking if stuff in PauseMenu(); is happening
 		PauseMenu ();
 	}
-	public void PauseMenu()
-	{
+	public void PauseMenu(){
 		//With escape key opens up the pause menu and pauses the game
 		if (Input.GetKeyDown (KeyCode.Escape)) {
-			Time.timeScale = 0;
-			panel.SetActive(true);
+			if (panel.activeSelf && !KeyboardMove.dead)
+				ResumeGame();
+			else{
+				Time.timeScale = 0;
+				panel.SetActive (true);
+			}
 		}
 	}
 	//Button is linked to this and when pressing continue in the pause menu it continues the game
-	public void ResumeGame()
-	{
-		Time.timeScale = 1;
+	public void ResumeGame(){
 		panel.SetActive(false);
+		Time.timeScale = 1;
 	}
-	public void ExitGame()
-	{
+	public void ExitGame(){
 		Application.Quit ();
 	}
-	public void EnterMenu()
-	{
+	public void EnterMenu(){
+		RestartLevel ();
 		Application.LoadLevel ("0_Menu");
+	}
+	public void RestartLevel(){
+		KeyboardMove.dead = false;
+		Time.timeScale = 1;
+		Application.LoadLevel("1_Game");
 	}
 }

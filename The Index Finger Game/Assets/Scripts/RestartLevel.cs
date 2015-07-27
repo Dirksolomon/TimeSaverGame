@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class RestartLevel : MonoBehaviour {
+
+	public GameObject panel;
+	public Text txtPausemenu;
+	public GameObject btnContinue;
 
 	// Use this for initialization
 	void Start () {
@@ -10,9 +15,12 @@ public class RestartLevel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (KeyboardMove.dead == true) 
-		{
-			GetComponent<GUITexture>().enabled = true;
+		if (KeyboardMove.dead == true){
+			panel.SetActive(true);
+			txtPausemenu.text="Game over";
+			btnContinue.SetActive(false);
+
+			//GetComponent<GUITexture>().enabled = true;
 			Time.timeScale = 0;
 		}
 	}

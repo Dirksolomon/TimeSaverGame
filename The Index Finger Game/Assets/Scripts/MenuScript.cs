@@ -6,6 +6,7 @@ public class MenuScript : MonoBehaviour {
 	public void StartGame()
 	{
 		Application.LoadLevel ("1_Game");
+		Time.timeScale = 1;
 	}
 	public void QuitGame()
 	{

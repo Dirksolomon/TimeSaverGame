@@ -14,7 +14,7 @@ GameObject:
   - 61: {fileID: 6124876}
   - 114: {fileID: 11420422}
   m_Layer: 0
-  m_Name: Hahmo
+  m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,6 +93,8 @@ MonoBehaviour:
   maxspeed: 3
   isJumping: 0
   isCrouching: 0
+  isHidable: 0
+  isHiding: 0
 --- !u!212 &21298700
 SpriteRenderer:
   m_ObjectHideFlags: 1
