@@ -6,6 +6,7 @@
 */
 
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class KeyboardMove : MonoBehaviour {
@@ -17,6 +18,10 @@ public class KeyboardMove : MonoBehaviour {
 	public bool isCrouching; // is now performing crouch
 	public bool isHidable; // can hide in shadow
 	public bool isHiding=false; // is hidig now
+
+	public GameObject panel;
+	public Text txtPausemenu;
+	public GameObject btnContinue;
 
 	private Rigidbody2D rb2d;
 	private Animator animator;
@@ -189,6 +194,12 @@ public class KeyboardMove : MonoBehaviour {
 		//Checks if player hits hazard object, killing the character
 		if(col.gameObject.tag=="Hazard"){
 			dead=true;
+			panel.SetActive(true);
+			txtPausemenu.text="Game over";
+			btnContinue.SetActive(false);
+			
+			//GetComponent<GUITexture>().enabled = true;
+			Time.timeScale = 0;
 		}
 	}
 }
