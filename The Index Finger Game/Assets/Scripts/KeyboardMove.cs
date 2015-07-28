@@ -2,7 +2,7 @@
 	Mikko is responsible for editing!
 
 	Movements and collisions.
-	Updated 2015-7-27 9:45
+	Updated 2015-7-28 12:51 by Mikko
 */
 
 using UnityEngine;
@@ -61,28 +61,16 @@ public class KeyboardMove : MonoBehaviour {
 		}
 
 	}
-	void FixedUpdate()
-	{
-		// Horizontal movement
+	void FixedUpdate(){
+		// Horizontal movement (remove sliding somehow!)
 		float h=Input.GetAxis("Horizontal");
 
-		/*
-		if (Input.GetKey (KeyCode.LeftArrow))
-			rb2d.velocity = -Vector2.right*speed;
-		if (Input.GetKey (KeyCode.RightArrow))
-			rb2d.velocity = Vector2.right*speed;
-		*/
+		if (isCrouching)
+			h *= 0.5f;
+		else
+			h *= 2f;
 
 		rb2d.AddForce((Vector2.right*speed)*h*20);
-		//rb2d.velocity=Vector2.right*h*speed;
-		//rb2d.velocity = Vector2.up * 0;
-		
-		/*
-			if (h<0)
-				transform.Translate(-Vector2.right*Time.deltaTime*speed);
-			else if(h>0)
-				transform.Translate(Vector2.right*Time.deltaTime*speed);
-			*/
 
 		// Jumping (or hiding!)
 		if(
@@ -166,8 +154,7 @@ public class KeyboardMove : MonoBehaviour {
 	}
 
 	// Checks if the player bumps into something specific.
-	void OnCollisionEnter2D(Collision2D col)
-	{
+	void OnCollisionEnter2D(Collision2D col){
 
 		//print (col.gameObject.layer);
 		// we landed
@@ -193,13 +180,13 @@ public class KeyboardMove : MonoBehaviour {
 
 		//Checks if player hits hazard object, killing the character
 		if(col.gameObject.tag=="Hazard"){
+
 			dead=true;
-			panel.SetActive(true);
+			Time.timeScale = 0;
+
+			panel.SetActive (true);
 			txtPausemenu.text="Game over";
 			btnContinue.SetActive(false);
-			
-			//GetComponent<GUITexture>().enabled = true;
-			Time.timeScale = 0;
 		}
 	}
 }
