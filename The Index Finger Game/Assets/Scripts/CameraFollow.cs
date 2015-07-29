@@ -23,6 +23,8 @@ public class CameraFollow : MonoBehaviour {
 	public Text txtPausemenu;
 	public GameObject btnContinue;
 
+	public string level;
+
 	// Use this for initialization
 	void Start(){
 		Time.timeScale=1;
@@ -97,6 +99,6 @@ public class CameraFollow : MonoBehaviour {
 	public void RestartLevel(){
 		PlayerMove.dead=false;
 		Time.timeScale=1;
-		Application.LoadLevel("1_Game"); // need to change it for any next level somehow
+		Application.LoadLevel(level); // need to change it for any next level somehow
 	}
 }

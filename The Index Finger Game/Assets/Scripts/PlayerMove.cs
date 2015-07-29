@@ -15,8 +15,6 @@ public class PlayerMove : MonoBehaviour {
 	public float maxspeed; // maximum speed
 	public bool isJumping; // is now performing jump
 	public bool isCrouching; // is now performing crouch
-	public bool isHidable; // can hide in shadow
-	public bool isHiding=false; // is hidig now
 
 	private Rigidbody2D rb2d;
 	private Animator animator;
@@ -167,31 +165,8 @@ public class PlayerMove : MonoBehaviour {
 
 		//Checks if player hits hazard object, killing the character
 		if(col.gameObject.tag=="Hazard"){
-
 			dead=true;
 			Time.timeScale = 0;
-
-
-		}
-
-		OnCollisionStay2D (col);
-		OnCollisionExit2D (col);
-
-	}
-
-	void OnCollisionStay2D(Collision2D col){
-		// can hide if there is shadow
-		if (col.gameObject.tag == "Shadow") {
-			isHidable = true;
-			print ("It is possible to hide here!");
-		}
-	}
-
-	void OnCollisionExit2D(Collision2D col){
-		// cannot hide if there is shadow
-		if (col.gameObject.tag == "Shadow"){
-			isHidable = false;
-			print ("It is not possible to hide here!");
 		}
 	}
 }
