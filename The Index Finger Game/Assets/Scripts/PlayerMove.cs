@@ -6,10 +6,9 @@
 */
 
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
-public class KeyboardMove : MonoBehaviour {
+public class PlayerMove : MonoBehaviour {
 
 	public float speed; // speed
 	public float jump; // jump
@@ -18,10 +17,6 @@ public class KeyboardMove : MonoBehaviour {
 	public bool isCrouching; // is now performing crouch
 	public bool isHidable; // can hide in shadow
 	public bool isHiding=false; // is hidig now
-
-	public GameObject panel;
-	public Text txtPausemenu;
-	public GameObject btnContinue;
 
 	private Rigidbody2D rb2d;
 	private Animator animator;
@@ -166,15 +161,7 @@ public class KeyboardMove : MonoBehaviour {
 		if(col.gameObject.tag!="Ground")
 			print ("Player met "+col.gameObject.name);
 		*/
-		// can hide if there is shadow
-		if (col.gameObject.tag == "Shadow") {
-			isHidable = true;
-			//print ("It is possible to hide here!");
-		}
-		if (col.gameObject.tag != "Shadow") {
-			isHidable = false;
-			//print ("It is not possible to hide here!");
-		}
+
 		// Enables jumping key and removes animation of jumping when touching ground
 		//if(col.gameObject.tag=="Ground" && isJumping==true)
 
@@ -184,9 +171,27 @@ public class KeyboardMove : MonoBehaviour {
 			dead=true;
 			Time.timeScale = 0;
 
-			panel.SetActive (true);
-			txtPausemenu.text="Game over";
-			btnContinue.SetActive(false);
+
+		}
+
+		OnCollisionStay2D (col);
+		OnCollisionExit2D (col);
+
+	}
+
+	void OnCollisionStay2D(Collision2D col){
+		// can hide if there is shadow
+		if (col.gameObject.tag == "Shadow") {
+			isHidable = true;
+			print ("It is possible to hide here!");
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D col){
+		// cannot hide if there is shadow
+		if (col.gameObject.tag == "Shadow"){
+			isHidable = false;
+			print ("It is not possible to hide here!");
 		}
 	}
 }

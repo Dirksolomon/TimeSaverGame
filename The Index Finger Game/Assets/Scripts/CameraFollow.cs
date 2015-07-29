@@ -4,6 +4,7 @@
 	Updated 2015-7-28 12:24 by Mikko
 */
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CameraFollow : MonoBehaviour {
@@ -19,6 +20,8 @@ public class CameraFollow : MonoBehaviour {
 	public bool Following {get; set;}
 
 	public GameObject panel;
+	public Text txtPausemenu;
+	public GameObject btnContinue;
 
 	// Use this for initialization
 	void Start(){
@@ -32,37 +35,42 @@ public class CameraFollow : MonoBehaviour {
 	// Update is called once per frame
 	void Update(){
 		//Starts by checking if player is dead or not
-		if(KeyboardMove.dead==false){
+		if (PlayerMove.dead == false) {
 		
-			var x=transform.position.x;
-			var y=transform.position.y;
+			var x = transform.position.x;
+			var y = transform.position.y;
 
 			// Camera following the player
-			if(Following){
-				if(Mathf.Abs(x-Player.position.x)>marg.x)
-					x=Mathf.Lerp(x,Player.position.x,smooth.x*Time.deltaTime);
-				if(Mathf.Abs(y-Player.position.y)>marg.y)
-					y=Mathf.Lerp(y,Player.position.y,smooth.y*Time.deltaTime);
+			if (Following) {
+				if (Mathf.Abs (x - Player.position.x) > marg.x)
+					x = Mathf.Lerp (x, Player.position.x, smooth.x * Time.deltaTime);
+				if (Mathf.Abs (y - Player.position.y) > marg.y)
+					y = Mathf.Lerp (y, Player.position.y, smooth.y * Time.deltaTime);
 			}
 
 
-			var cameraWidth=GetComponent<Camera>().orthographicSize*((float)Screen.width/Screen.height);
+			var cameraWidth = GetComponent<Camera> ().orthographicSize * ((float)Screen.width / Screen.height);
 
-			x=Mathf.Clamp(x,_min.x+cameraWidth,_max.x-cameraWidth);
-			y=Mathf.Clamp(y,_min.y+GetComponent<Camera>().orthographicSize,_max.y-GetComponent<Camera>().orthographicSize);
+			x = Mathf.Clamp (x, _min.x + cameraWidth, _max.x - cameraWidth);
+			y = Mathf.Clamp (y, _min.y + GetComponent<Camera> ().orthographicSize, _max.y - GetComponent<Camera> ().orthographicSize);
 
 			// Camera moving to show the player
-			transform.position=new Vector3(x,y,transform.position.z);
+			transform.position = new Vector3 (x, y, transform.position.z);
+		} else {
+			panel.SetActive (true);
+			txtPausemenu.text="Game over";
+			btnContinue.SetActive(false);
 		}
-
 		//Keeps checking if stuff in PauseMenu(); is happening
 		PauseMenu();
+
+
 	}
 
 	public void PauseMenu(){
 		//With escape key opens up the pause menu and pauses the game
 		if (Input.GetKeyDown(KeyCode.Escape)){
-			if (panel.activeSelf && !KeyboardMove.dead)
+			if (panel.activeSelf && !PlayerMove.dead)
 				ResumeGame();
 			else{
 				Time.timeScale=0;
@@ -84,7 +92,7 @@ public class CameraFollow : MonoBehaviour {
 		Application.LoadLevel("0_Menu");
 	}
 	public void RestartLevel(){
-		KeyboardMove.dead=false;
+		PlayerMove.dead=false;
 		Time.timeScale=1;
 		Application.LoadLevel("1_Game"); // need to change it for any next level somehow
 	}
