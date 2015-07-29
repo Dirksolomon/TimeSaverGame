@@ -8,4 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0_Menu.unity
   - enabled: 1
-    path: Assets/Scenes/1_Game.unity
+    path: Assets/Scenes/1_Level.unity

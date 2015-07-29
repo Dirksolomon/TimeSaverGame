@@ -138,13 +138,13 @@ public class PlayerMove : MonoBehaviour {
 
 	// Crouching code, makes the boxcollider smaller
 	void Crouch(){
-		b.size=new Vector2(0.44f,0.3f);
+		b.size=new Vector2(0.36f,0.3f);
 		isCrouching=true;
 	}
 
 	// Standing up code, makes the boxcollider normal sized again
 	void Stand(){
-		b.size=new Vector2(0.44f,0.6f);
+		b.size=new Vector2(0.36f,0.52f);
 		isCrouching=false;
 	}
 
