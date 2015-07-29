@@ -6,15 +6,24 @@ using UnityEngine;
 using System.Collections;
 
 public class MenuScript:MonoBehaviour{
-	public void StartGame()	{
+
+	public GameObject btnContinue;
+
+	public void StartNewGame()	{
 		Application.LoadLevel("1_Game"); // new game
+	}
+	public void ContinueGame()	{
+		Application.LoadLevel(PlayerPrefs.GetString("CheckPoint")); // continue game
 	}
 	public void QuitGame(){
 		Application.Quit();
 	}
 
 	// Use this for initialization
-	void Start(){}
+	void Start(){
+		if (!PlayerPrefs.HasKey ("CheckPoint"))
+			btnContinue.SetActive(false);
+	}
 	// Update is called once per frame
 	void Update(){}
 }
