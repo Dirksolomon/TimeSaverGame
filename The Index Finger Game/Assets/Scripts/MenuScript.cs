@@ -22,7 +22,7 @@ public class MenuScript:MonoBehaviour{
 
 	// Starting the new game
 	public void StartNewGame(){
-		Application.LoadLevel("1_Level"); // new game
+		Application.LoadLevel("1_Basement"); // new game
 	}
 
 	// About the game
