@@ -64,7 +64,10 @@ public class CameraFollow : MonoBehaviour {
 		//Keeps checking if stuff in PauseMenu(); is happening
 		PauseMenu();
 
-
+		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
+			GetComponent<Camera> ().orthographicSize = Mathf.Max(GetComponent<Camera> ().orthographicSize-1, 4);
+		else if (Input.GetAxis("Mouse ScrollWheel") < 0) // backward
+			GetComponent<Camera> ().orthographicSize = Mathf.Min(GetComponent<Camera> ().orthographicSize+1, 6);
 	}
 
 	public void PauseMenu(){
