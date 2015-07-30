@@ -117,7 +117,8 @@ public class PlayerMove : MonoBehaviour {
 		if(
 			Input.GetKey(KeyCode.S) || // if user presses S
 			Input.GetKey(KeyCode.DownArrow) || // if user presses arrow DOWN
-			Input.GetKey(KeyCode.LeftControl) // if user presses Left Control
+			Input.GetKey(KeyCode.LeftControl) || // if user presses Left Control
+			Input.GetKey(KeyCode.RightControl) // if user presses Left Control
 		){
 			Crouch(); // than character starts crouching
 		}

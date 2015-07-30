@@ -8,10 +8,12 @@ using System.Collections;
 public class MenuScript:MonoBehaviour{
 
 	public GameObject btnContinue;
+	public GameObject pnlControls;
 	public GameObject pnlAbout;
 	public GameObject pnlExit;
 
 	public bool continuable=true;
+	public bool controlsShown=false;
 	public bool aboutShown=false;
 	public bool exitShown=false;
 
@@ -23,6 +25,16 @@ public class MenuScript:MonoBehaviour{
 	// Starting the new game
 	public void StartNewGame(){
 		Application.LoadLevel("1_Basement"); // new game
+	}
+
+	// Controls for the game
+	public void ShowGameControls(){
+		controlsShown = true;
+		pnlControls.SetActive(true);
+	}
+	public void HideGameControls(){
+		controlsShown = false;
+		pnlControls.SetActive(false);
 	}
 
 	// About the game
