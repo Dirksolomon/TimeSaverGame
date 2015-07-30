@@ -168,5 +168,12 @@ public class PlayerMove : MonoBehaviour {
 			dead=true;
 			Time.timeScale = 0;
 		}
+
+		//Makes movingplatform parent of player if it has tag "MovingPlatform" in it, making player stand on the moving platform
+		/*if (col.transform.tag == "MovingPlatform") 
+		{
+			rb2d.transform.parent = col.transform;
+			isJumping = false;
+		}*/
 	}
 }
