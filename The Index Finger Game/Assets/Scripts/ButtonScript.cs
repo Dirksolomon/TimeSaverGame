@@ -4,24 +4,19 @@ using System.Collections;
 public class ButtonScript : MonoBehaviour {
 	public GameObject door;
 
-
 	// Use this for initialization
-	void Start () {
-	
-	}
+	void Start(){}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update(){}
 
-	
-	}
-
-	void OnTriggerStay2D(Collider2D other)
-	{
-		if (Input.GetKeyDown("up")) 
-		{
-			door.SetActive(false);
-			Debug.Log ("Works!");
+	// Open or close the door with button "E"
+	void OnTriggerStay2D(Collider2D other){
+		if(Input.GetKeyDown(KeyCode.E)||Input.GetKeyDown(KeyCode.Return)){
+			if(door.activeSelf)
+				door.SetActive(false);
+			else door.SetActive(true);
+			//Debug.Log ("Works!");
 		}
 	}
 	
