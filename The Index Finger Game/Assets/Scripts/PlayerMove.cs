@@ -64,14 +64,14 @@ public class PlayerMove : MonoBehaviour {
 			h *= 2f;
 
 		rb2d.AddForce((Vector2.right*speed)*h*20);
-
+		print (rb2d.velocity);
 		// Jumping (or hiding!)
 		if(
 			isJumping == false && // do not jump if already jumping
 			(
-				Input.GetKey(KeyCode.W) || // if user presses W
-				Input.GetKey(KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKey(KeyCode.Space) // if user presses Spacebar
+				Input.GetKeyDown(KeyCode.W) || // if user presses W
+				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
+				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
 			)
 		){
 			/*
@@ -153,6 +153,7 @@ public class PlayerMove : MonoBehaviour {
 		// we landed
 		if (col.gameObject.tag == "Ground"){
 			isJumping = false; // top surface of elements is ground
+
 			//print ("landed on the ground");
 		}
 		/*
