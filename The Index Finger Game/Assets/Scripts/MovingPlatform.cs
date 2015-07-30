@@ -13,9 +13,12 @@ public class MovingPlatform : MonoBehaviour {
 
 	public int pointSelection;
 
+	private GameObject player;
+
 	// Use this for initialization
 	void Start () 
 	{
+		player = GameObject.Find("Character");
 		currentposition = points [pointSelection];
 	}
 	
@@ -37,5 +40,30 @@ public class MovingPlatform : MonoBehaviour {
 			currentposition = points[pointSelection];
 		}
 
+	}
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "Player") 
+		{
+			Debug.Log ("Works!");
+			MakeChild();
+		}
+	}
+	void OnCollisionExit2D(Collision2D coll)
+	{
+		if (coll.gameObject.tag == "Player") 
+		{
+			Debug.Log ("Works!");
+			RemoveChild();
+		}
+
+	}
+	void MakeChild()
+	{
+		player.transform.parent = platform.transform;
+	}
+	void RemoveChild()
+	{
+		player.transform.parent = null;
 	}
 }
