@@ -69,9 +69,9 @@ public class PlayerMove : MonoBehaviour {
 		if(
 			isJumping == false && // do not jump if already jumping
 			(
-				Input.GetKeyDown(KeyCode.W) || // if user presses W
-				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
+				Input.GetKey(KeyCode.W) || // if user presses W
+				Input.GetKey(KeyCode.UpArrow) || // if user presses arrow UP
+				Input.GetKey(KeyCode.Space) // if user presses Spacebar
 			)
 		){
 			/*
