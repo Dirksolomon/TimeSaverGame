@@ -53,27 +53,15 @@ public class PlayerMove : MonoBehaviour {
 			transform.localScale = new Vector2(1,1);
 		}
 
-	}
-	void FixedUpdate(){
-		// Horizontal movement (remove sliding somehow!)
-		float h=Input.GetAxis("Horizontal");
-
-		if (isCrouching)
-			h *= 0.5f;
-		else
-			h *= 2f;
-
-		rb2d.AddForce((Vector2.right*speed)*h*20);
-		print (rb2d.velocity);
 		// Jumping (or hiding!)
 		if(
 			isJumping == false && // do not jump if already jumping
 			(
-				Input.GetKeyDown(KeyCode.W) || // if user presses W
-				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
+			Input.GetKeyDown(KeyCode.W) || // if user presses W
+			Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
+			Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
 			)
-		){
+			){
 			/*
 
 			// the first action to try is hiding
@@ -88,20 +76,34 @@ public class PlayerMove : MonoBehaviour {
 			if(!Physics2D.Raycast(transform.position,Vector2.up,0.4f)){
 				//rb2d.AddForce(Vector2.up*jump);
 				//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
-
+				
 				// jumping from crouching position is higher
 				if(isCrouching==true){
 					rb2d.velocity = Vector2.up * jump * 1.3f;
 					//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
 				}
-
+				
 				// usual jump
 				else rb2d.velocity = Vector2.up * jump;
-
+				
 				isCrouching = false;
 				isJumping = true;
 			}
 		}
+	}
+	void FixedUpdate(){
+		// Horizontal movement (remove sliding somehow!)
+		float h=Input.GetAxis("Horizontal");
+
+		if (isCrouching)
+			h *= 0.5f;
+		else
+			h *= 2f;
+
+		rb2d.AddForce((Vector2.right*speed)*h*20);
+		//print (rb2d.velocity);
+
+		
 
 		// Checking some speed so the player does not fly off the screen, limiting it to certain number
 		if (rb2d.velocity.x > maxspeed){
