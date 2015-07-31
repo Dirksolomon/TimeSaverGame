@@ -31,8 +31,7 @@ public class NextLevel : MonoBehaviour {
 				PlayerPrefs.DeleteKey("Checkpoint");
 				PlayerPrefs.DeleteKey("Checkscore");
 			}
-			else
-				Application.LoadLevel(Application.loadedLevel+1);
+			else Application.LoadLevel(Application.loadedLevel+1);
 		}
 	}
 }

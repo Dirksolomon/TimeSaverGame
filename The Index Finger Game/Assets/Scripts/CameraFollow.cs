@@ -20,20 +20,28 @@ public class CameraFollow : MonoBehaviour {
 	public bool Following {get; set;}
 
 	public GameObject panel;
-	public Text txtPausemenu;
-	public GameObject btnContinue;
 
+	public Text txtPausemenuTitle;
+	public GameObject btnContinue;
+	public Text txtContinue;
+	public GameObject btnRestart;
+
+	private bool justStarted = true;
 	//public static string level=Application.loadedLevelName;
 
 	// Use this for initialization
 	void Start(){
-		print ("Best time for this level: " + PlayerPrefs.GetInt ("Checkscore"));
+		//print ("Best time for this level: " + PlayerPrefs.GetInt ("Checkscore"));
+
+		PauseMenu();
+		txtPausemenuTitle.text = Application.loadedLevelName;
+		btnRestart.SetActive (false);
 
 		// game starts
 		NextLevel.startTime=Time.time;
 
 		PlayerMove.dead=false;
-		Time.timeScale=1;
+		//Time.timeScale=1;
 		//Sets variables for max and min bounds which camera cannot follow past and sets following bool to true so it follows
 		_min=Bounds.bounds.min;
 		_max=Bounds.bounds.max;
@@ -66,11 +74,12 @@ public class CameraFollow : MonoBehaviour {
 			transform.position = new Vector3 (x, y, transform.position.z);
 		} else {
 			panel.SetActive (true);
-			txtPausemenu.text="Game over";
+			txtPausemenuTitle.text="Game over";
 			btnContinue.SetActive(false);
 		}
 		//Keeps checking if stuff in PauseMenu(); is happening
-		PauseMenu();
+		if (Input.GetKeyDown(KeyCode.Escape))
+			PauseMenu();
 
 		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
 			GetComponent<Camera> ().orthographicSize = Mathf.Max(GetComponent<Camera> ().orthographicSize-1, 3);
@@ -80,12 +89,28 @@ public class CameraFollow : MonoBehaviour {
 
 	public void PauseMenu(){
 		//With escape key opens up the pause menu and pauses the game
-		if (Input.GetKeyDown(KeyCode.Escape)){
+		if (Input.GetKeyDown(KeyCode.Escape)||justStarted){
+
+			if(justStarted){
+				txtPausemenuTitle.text = Application.loadedLevelName;
+				txtContinue.text="Start";
+				btnRestart.SetActive (false);
+			}
+
 			if (panel.activeSelf && !PlayerMove.dead)
 				ResumeGame();
 			else{
 				Time.timeScale=0;
 				panel.SetActive(true);
+			}
+			if(justStarted){
+				if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Return)){
+					txtPausemenuTitle.text = "Pause";
+					txtContinue.text="Continue";
+					btnRestart.SetActive (true);
+					justStarted=false;
+					panel.SetActive(false);
+				}
 			}
 		}
 	}
@@ -95,9 +120,7 @@ public class CameraFollow : MonoBehaviour {
 		panel.SetActive(false);
 		Time.timeScale=1;
 	}
-	public void ExitGame(){
-		Application.Quit();
-	}
+
 	public void EnterMenu(){
 		RestartLevel();
 		Application.LoadLevel("0_Menu");

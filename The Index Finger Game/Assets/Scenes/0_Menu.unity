@@ -1233,6 +1233,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1606424124}
+    - target: {fileID: 11479902, guid: 85397ebbcb1f6f749a035f287fd297c1, type: 2}
+      propertyPath: m_Text
+      value: "Go left:         \u2190, A\nGo right:       \u2192, D\nCrouch:         \u2193,
+        Ctrl, S\nJump:            \u2191, Space, W\nOpen doors:  E, F, Enter\nHigh
+        jump:    Crouch + Jump"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85397ebbcb1f6f749a035f287fd297c1, type: 2}
   m_IsPrefabParent: 0

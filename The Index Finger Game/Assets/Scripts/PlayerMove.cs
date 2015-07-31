@@ -57,9 +57,9 @@ public class PlayerMove : MonoBehaviour {
 		if(
 			isJumping == false && // do not jump if already jumping
 			(
-			Input.GetKeyDown(KeyCode.W) || // if user presses W
-			Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
-			Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
+				Input.GetKeyDown(KeyCode.W) || // if user presses W
+				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
+				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
 			)
 			){
 			/*
@@ -96,7 +96,7 @@ public class PlayerMove : MonoBehaviour {
 		float h=Input.GetAxis("Horizontal");
 
 		if (isCrouching)
-			h *= 0.5f;
+			h *= 0.75f;
 		else
 			h *= 2f;
 
@@ -128,7 +128,8 @@ public class PlayerMove : MonoBehaviour {
 			!(
 				Input.GetKey(KeyCode.S) ||
 				Input.GetKey(KeyCode.DownArrow) ||
-				Input.GetKey(KeyCode.LeftControl)
+				Input.GetKey(KeyCode.LeftControl) ||
+				Input.GetKey(KeyCode.RightControl)
 			) &&
 			!Physics2D.Raycast(transform.position,Vector2.up,0.4f)
 		){
@@ -139,7 +140,7 @@ public class PlayerMove : MonoBehaviour {
 
 	// Crouching code, makes the boxcollider smaller
 	void Crouch(){
-		b.size=new Vector2(0.36f,0.26f);
+		b.size=new Vector2(0.36f,0.22f);
 		isCrouching=true;
 	}
 
