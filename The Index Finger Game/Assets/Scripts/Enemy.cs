@@ -69,11 +69,10 @@ public class Enemy : MonoBehaviour {
 		Debug.DrawRay(transform.position, downLookPos * SightRange, Color.red);
 		Debug.DrawRay(transform.position, straightLookPos * SightRange, Color.red);
 		//Player is in view
-		if (PlayerInSight == true) 
-		{
+		if (PlayerInSight == true){
 			//Cheap placeholder kill.
 			Gun.SetActive(true);
-			PlayerMove.dead = true;
+			//PlayerMove.dead = true;
 			moveSpeed = 0;
 			Debug.DrawRay (transform.position, LookAtPlayer * SightRange, Color.green);
 			//PlayerCharacter.dead = true;
@@ -82,9 +81,7 @@ public class Enemy : MonoBehaviour {
 		else 
 		{
 			if(setSpeed != 0)
-			{
-			moveSpeed = 1;
-			}
+				moveSpeed = 1;
 			Gun.SetActive (false);
 		}
 
@@ -93,7 +90,7 @@ public class Enemy : MonoBehaviour {
 		if (Physics2D.Raycast (transform.position, downLookPos, SightRange) || Physics2D.Raycast (transform.position, upLookPos, SightRange) || Physics2D.Raycast (transform.position, straightLookPos, SightRange)) 
 		{
 			PlayerInSight = true;
-			Debug.Log ("Player in sight!");
+			//Debug.Log ("Player in sight!");
 		} 
 		else
 			PlayerInSight = false;
@@ -103,10 +100,8 @@ public class Enemy : MonoBehaviour {
 	{
 		facingLeft = !facingLeft;
 
-		if (facingLeft == true) 
-		{
+		if(facingLeft == true)
 			transform.localScale = new Vector2(-0.3f,0.3f);
-		}
 		else
 			transform.localScale = new Vector2(0.3f,0.3f);
 	}

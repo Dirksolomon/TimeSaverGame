@@ -23,10 +23,11 @@ public class CameraFollow : MonoBehaviour {
 	public Text txtPausemenu;
 	public GameObject btnContinue;
 
-	public string level;
+	public static string level;
 
 	// Use this for initialization
 	void Start(){
+		PlayerMove.dead=false;
 		Time.timeScale=1;
 		//Sets variables for max and min bounds which camera cannot follow past and sets following bool to true so it follows
 		_min=Bounds.bounds.min;
@@ -97,8 +98,6 @@ public class CameraFollow : MonoBehaviour {
 		Application.LoadLevel("0_Menu");
 	}
 	public void RestartLevel(){
-		PlayerMove.dead=false;
-		Time.timeScale=1;
 		Application.LoadLevel(level); // need to change it for any next level somehow
 	}
 }

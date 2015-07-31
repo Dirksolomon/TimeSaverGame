@@ -139,7 +139,7 @@ public class PlayerMove : MonoBehaviour {
 
 	// Crouching code, makes the boxcollider smaller
 	void Crouch(){
-		b.size=new Vector2(0.36f,0.3f);
+		b.size=new Vector2(0.36f,0.26f);
 		isCrouching=true;
 	}
 

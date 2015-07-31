@@ -25,6 +25,7 @@ public class MenuScript:MonoBehaviour{
 	// Starting the new game
 	public void StartNewGame(){
 		Application.LoadLevel("1_Basement"); // new game
+		PlayerMove.dead = false;
 	}
 
 	// Controls for the game
