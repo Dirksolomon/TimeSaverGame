@@ -1,8 +1,4 @@
-﻿/*
-	Start menu script.
-	Updated 2015-7-28 12:19 by Mikko
-*/
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class MenuScript:MonoBehaviour{

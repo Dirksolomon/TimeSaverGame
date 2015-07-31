@@ -1,9 +1,4 @@
-﻿/*
-
-	Camera's events.
-	Updated 2015-7-28 12:24 by Mikko
-*/
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -25,17 +20,20 @@ public class CameraFollow : MonoBehaviour {
 	public GameObject btnContinue;
 	public Text txtContinue;
 	public GameObject btnRestart;
+	public Text txtInfoText;
 
-	private bool justStarted = true;
+	public static bool justStarted = true;
+	public static bool justEnded = false;
 	//public static string level=Application.loadedLevelName;
 
 	// Use this for initialization
 	void Start(){
 		//print ("Best time for this level: " + PlayerPrefs.GetInt ("Checkscore"));
 
-		PauseMenu();
+		Time.timeScale = 0;
 		txtPausemenuTitle.text = Application.loadedLevelName;
 		btnRestart.SetActive (false);
+		PauseMenu();
 
 		// game starts
 		NextLevel.startTime=Time.time;
@@ -77,9 +75,10 @@ public class CameraFollow : MonoBehaviour {
 			txtPausemenuTitle.text="Game over";
 			btnContinue.SetActive(false);
 		}
+
 		//Keeps checking if stuff in PauseMenu(); is happening
-		if (Input.GetKeyDown(KeyCode.Escape))
-			PauseMenu();
+		PauseMenu ();
+
 
 		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
 			GetComponent<Camera> ().orthographicSize = Mathf.Max(GetComponent<Camera> ().orthographicSize-1, 3);
@@ -89,31 +88,58 @@ public class CameraFollow : MonoBehaviour {
 
 	public void PauseMenu(){
 		//With escape key opens up the pause menu and pauses the game
-		if (Input.GetKeyDown(KeyCode.Escape)||justStarted){
 
-			if(justStarted){
-				txtPausemenuTitle.text = Application.loadedLevelName;
-				txtContinue.text="Start";
-				btnRestart.SetActive (false);
-			}
-
-			if (panel.activeSelf && !PlayerMove.dead)
-				ResumeGame();
-			else{
-				Time.timeScale=0;
-				panel.SetActive(true);
-			}
-			if(justStarted){
-				if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Return)){
-					txtPausemenuTitle.text = "Pause";
-					txtContinue.text="Continue";
-					btnRestart.SetActive (true);
-					justStarted=false;
-					panel.SetActive(false);
+		if (Input.GetKeyDown (KeyCode.Return)||justEnded)
+			ResumeGame ();
+		if (Input.GetKeyDown (KeyCode.Escape)){
+			Time.timeScale = 0;
+			// activating panel
+			if(!panel.activeSelf){
+				if (justStarted) {
+					txtPausemenuTitle.text = Application.loadedLevelName;
+					btnRestart.SetActive (false);
 				}
+				else{
+					if (justEnded){
+						txtPausemenuTitle.text = "You won!";
+						btnContinue.SetActive (false);
+						btnRestart.SetActive (false);
+						txtInfoText.text = "Your score is " +
+							PlayerPrefs.GetInt ("Checkscore") +
+							".\nBest score is " +
+							PlayerPrefs.GetInt ("BestScore") + ".\nNice job!";
+					}
+					else{
+						print("Usual pause");
+						txtPausemenuTitle.text = "Pause";
+						txtContinue.text = "Continue";
+						btnContinue.SetActive (true);
+						btnRestart.SetActive (true);
+					}
+				}
+				panel.SetActive (true);
+			}
+			else if (!PlayerMove.dead)
+				ResumeGame ();
+		}
+		justStarted = false;
+	}
+	/*
+		if(justStarted){
+			print ("3");
+			if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Return)){
+
+				txtPausemenuTitle.text = "Pause";
+				txtContinue.text="Continue";
+				btnRestart.SetActive (true);
+				panel.SetActive(false);
+				print ("4!!");
 			}
 		}
+		//justStarted = false;
+
 	}
+	*/
 
 	//Button is linked to this and when pressing continue in the pause menu it continues the game
 	public void ResumeGame(){

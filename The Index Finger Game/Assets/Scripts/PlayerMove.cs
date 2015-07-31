@@ -1,11 +1,4 @@
-﻿/*
-	Mikko is responsible for editing!
-
-	Movements and collisions.
-	Updated 2015-7-28 12:51 by Mikko
-*/
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
