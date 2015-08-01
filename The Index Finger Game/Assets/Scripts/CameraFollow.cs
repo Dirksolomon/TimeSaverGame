@@ -124,22 +124,6 @@ public class CameraFollow : MonoBehaviour {
 		}
 		justStarted = false;
 	}
-	/*
-		if(justStarted){
-			print ("3");
-			if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Return)){
-
-				txtPausemenuTitle.text = "Pause";
-				txtContinue.text="Continue";
-				btnRestart.SetActive (true);
-				panel.SetActive(false);
-				print ("4!!");
-			}
-		}
-		//justStarted = false;
-
-	}
-	*/
 
 	//Button is linked to this and when pressing continue in the pause menu it continues the game
 	public void ResumeGame(){
