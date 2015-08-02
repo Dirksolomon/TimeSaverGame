@@ -167,8 +167,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -283,8 +282,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -809,6 +807,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 1
 --- !u!114 &720615469
 MonoBehaviour:
@@ -1048,8 +1047,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1235,9 +1233,14 @@ Prefab:
       objectReference: {fileID: 1606424124}
     - target: {fileID: 11479902, guid: 85397ebbcb1f6f749a035f287fd297c1, type: 2}
       propertyPath: m_Text
-      value: "Go left:         \u2190, A\nGo right:       \u2192, D\nCrouch:         \u2193,
-        Ctrl, S\nJump:            \u2191, Space, W\nOpen doors:  E, F, Enter\nHigh
-        jump:    Crouch + Jump"
+      value: "Action        :  Arrow | Letter | Command | Numpad\n------------------------------------------------------\nMove
+        left    :     \u2190     | A        |                  | 4\nMove right  :
+        \    \u2192     | D        |                  | 6\nCrouch        :     \u2193
+        \     | S         | Ctrl           | 5\nJump           :     \u2191      |
+        W        | Space       | 8\nInteraction :             |   E, F   | Enter        |
+        9\nPause          :             |Q         | Esc, Pause| 7\n--------------------------------------------------\nHigh
+        jump:            Crouch + Jump\nSuper neat jump:  Jump against the wall (in
+        between walls)"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85397ebbcb1f6f749a035f287fd297c1, type: 2}
@@ -1322,8 +1325,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1521,6 +1523,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
 --- !u!4 &1606424123
 Transform:
   m_ObjectHideFlags: 0
@@ -1650,8 +1653,7 @@ MonoBehaviour:
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

@@ -52,7 +52,8 @@ public class PlayerMove : MonoBehaviour {
 			(
 				Input.GetKeyDown(KeyCode.W) || // if user presses W
 				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
+				Input.GetKeyDown(KeyCode.Space) || // if user presses Spacebar
+				Input.GetKeyDown("8") // if user presses 8
 			)
 			){
 			/*
