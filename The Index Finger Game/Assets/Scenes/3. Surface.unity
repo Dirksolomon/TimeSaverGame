@@ -1065,6 +1065,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11429032, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_Text
+      value: It appears that the hospital was located underground. What a nice surprise.
+        You haven't seen the weather so nice for a long time.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
   m_IsPrefabParent: 0

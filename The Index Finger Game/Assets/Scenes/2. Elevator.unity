@@ -143,6 +143,7 @@ GameObject:
   m_PrefabInternal: {fileID: 66441992}
 --- !u!50 &14510175
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -151,11 +152,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!212 &14510176
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -427,6 +428,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!50 &86730071
 Rigidbody2D:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -435,11 +437,11 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
-  m_FixedAngle: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &215467963 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 108432, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
@@ -1316,6 +1318,7 @@ MonoBehaviour:
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
 --- !u!114 &829066343
 MonoBehaviour:
@@ -1599,7 +1602,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441160, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15.1499996
+      value: 15.2399998
       objectReference: {fileID: 0}
     - target: {fileID: 441160, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1635,7 +1638,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441160, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1.06522512
+      value: 1.75712502
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6878970, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
@@ -2134,6 +2137,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: EnterMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 11429032, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_Text
+      value: This is some kind of an elevator shaft. Probably it will lead you to
+        the upper floors. You want the chasers to lose you before you can get back
+        to the time machine. Good luck!
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
   m_IsPrefabParent: 0
@@ -2197,7 +2206,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441160, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9.96000004
+      value: 9.69999981
       objectReference: {fileID: 0}
     - target: {fileID: 441160, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
       propertyPath: m_LocalPosition.z

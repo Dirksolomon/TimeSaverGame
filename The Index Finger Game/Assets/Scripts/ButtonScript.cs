@@ -12,7 +12,11 @@ public class ButtonScript : MonoBehaviour {
 
 	// Open or close the door with button "E"
 	void OnTriggerStay2D(Collider2D other){
-		if(Input.GetKeyDown(KeyCode.E)||Input.GetKeyDown(KeyCode.Return)){
+		if(
+			Input.GetKeyDown(KeyCode.E) ||
+			Input.GetKeyDown(KeyCode.F) ||
+			Input.GetKeyDown(KeyCode.Return)
+		){
 			if(door.activeSelf)
 				door.SetActive(false);
 			else door.SetActive(true);

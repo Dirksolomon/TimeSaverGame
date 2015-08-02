@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/**
+	Autor: Mikhail Timofeev
+	Updated: 2.8.2015
+*/
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -31,12 +35,14 @@ public class CameraFollow : MonoBehaviour {
 		//print ("Best time for this level: " + PlayerPrefs.GetInt ("Checkscore"));
 
 		Time.timeScale = 0;
-		txtPausemenuTitle.text = Application.loadedLevelName;
+
+		PlayerPrefs.SetString("Checkpoint",Application.loadedLevelName);
+		txtPausemenuTitle.text ="Level "+Application.loadedLevelName;
 		btnRestart.SetActive (false);
 		PauseMenu();
 
 		// game starts
-		NextLevel.startTime=Time.time;
+		NextLevel.startTime=PlayerPrefs.GetInt("Checkscore");
 
 		PlayerMove.dead=false;
 		//Time.timeScale=1;
@@ -71,6 +77,8 @@ public class CameraFollow : MonoBehaviour {
 			// Camera moving to show the player
 			transform.position = new Vector3 (x, y, transform.position.z);
 		} else {
+			Time.timeScale = 0;
+			PlayerPrefs.SetInt("Checkscore",(int)(Time.time-NextLevel.startTime));
 			panel.SetActive (true);
 			txtPausemenuTitle.text="Game over";
 			btnContinue.SetActive(false);
@@ -89,15 +97,17 @@ public class CameraFollow : MonoBehaviour {
 	public void PauseMenu(){
 		//With escape key opens up the pause menu and pauses the game
 
-		if (Input.GetKeyDown (KeyCode.Return)||justEnded)
-			ResumeGame ();
-		if (Input.GetKeyDown (KeyCode.Escape)){
+		if (Input.GetKeyDown (KeyCode.Return)) {
+			if (!justEnded)
+				ResumeGame ();
+			else EnterMenu();
+		}
+		if (Input.GetKeyDown (KeyCode.Escape)||Input.GetKeyDown (KeyCode.Pause)||Input.GetKeyDown (KeyCode.Q)||justEnded){
 			Time.timeScale = 0;
 			// activating panel
 			if(!panel.activeSelf){
 				if (justStarted) {
-					txtPausemenuTitle.text = Application.loadedLevelName;
-					btnRestart.SetActive (false);
+
 				}
 				else{
 					if (justEnded){
@@ -108,9 +118,12 @@ public class CameraFollow : MonoBehaviour {
 							PlayerPrefs.GetInt ("Checkscore") +
 							".\nBest score is " +
 							PlayerPrefs.GetInt ("BestScore") + ".\nNice job!";
+
+						// removing the current score (leaving only highscore)
+						PlayerPrefs.DeleteKey("Checkpoint");
+						PlayerPrefs.DeleteKey("Checkscore");
 					}
 					else{
-						print("Usual pause");
 						txtPausemenuTitle.text = "Pause";
 						txtContinue.text = "Continue";
 						btnContinue.SetActive (true);
@@ -119,7 +132,7 @@ public class CameraFollow : MonoBehaviour {
 				}
 				panel.SetActive (true);
 			}
-			else if (!PlayerMove.dead)
+			else if (!PlayerMove.dead&&!justEnded)
 				ResumeGame ();
 		}
 		justStarted = false;
@@ -133,7 +146,7 @@ public class CameraFollow : MonoBehaviour {
 
 	public void EnterMenu(){
 		RestartLevel();
-		Application.LoadLevel("0_Menu");
+		Application.LoadLevel("0. Menu");
 	}
 	public void RestartLevel(){
 		Application.LoadLevel(Application.loadedLevelName); // need to change it for any next level somehow

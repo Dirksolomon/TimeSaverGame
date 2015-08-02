@@ -1,26 +1,37 @@
-﻿using UnityEngine;
+﻿/**
+	Autor: Mikhail Timofeev
+	Updated: 2.8.2015
+*/
+using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MenuScript:MonoBehaviour{
 
 	public GameObject btnContinue;
 	public GameObject pnlControls;
-	public GameObject pnlAbout;
+	public GameObject pnlAchievements;
+	public Text txtAchievements;
+	public Text txtBestScore;
+	public GameObject pnlCredits;
 	public GameObject pnlExit;
 
 	public bool continuable=true;
 	public bool controlsShown=false;
-	public bool aboutShown=false;
+	public bool achievementsShown=false;
+	public bool creditsShown=false;
 	public bool exitShown=false;
 
 	// Continuing game from the last checkpoint
 	public void ContinueGame(){
-		Application.LoadLevel(PlayerPrefs.GetString("CheckPoint")); // continue game
+		Application.LoadLevel(PlayerPrefs.GetString("Checkpoint")); // continue game
 	}
 
 	// Starting the new game
 	public void StartNewGame(){
-		Application.LoadLevel("1_Basement"); // new game
+		PlayerPrefs.SetInt ("Checkscore", 0);
+
+		Application.LoadLevel("1. Basement"); // new game
 		PlayerMove.dead = false;
 	}
 
@@ -34,48 +45,92 @@ public class MenuScript:MonoBehaviour{
 		pnlControls.SetActive(false);
 	}
 
-	// About the game
-	public void ShowAboutGame(){
-		aboutShown = true;
-		pnlAbout.SetActive(true);
+	// Game achievements
+	public void ShowGameAchievements(){
+		if (PlayerPrefs.HasKey ("Achievements")) {
+			txtAchievements.text = PlayerPrefs.GetString ("Achievements");
+			txtBestScore.text="Best score: "+PlayerPrefs.GetInt ("BestScore")+" seconds.\nCan you do it faster?";
+		}
+		achievementsShown = true;
+		pnlAchievements.SetActive(true);
 	}
-	public void HideAboutGame(){
-		aboutShown = false;
-		pnlAbout.SetActive(false);
+	public void HideGameAchievements(){
+		achievementsShown = false;
+		pnlAchievements.SetActive(false);
+	}
+
+	// About the game
+	public void ShowGameCredits(){
+		creditsShown = true;
+		pnlCredits.SetActive(true);
+	}
+	public void HideGameCredits(){
+		creditsShown = false;
+		pnlCredits.SetActive(false);
 	}
 
 	// Exit the game
 	public void ShowExitGame(){
-		print ("Please, do not go away!");
 		exitShown = true;
 		pnlExit.SetActive(true);
 	}
 	public void HideExitGame(){
-		print ("Oh yeah, keep playing...");
 		exitShown = false;
 		pnlExit.SetActive(false);
 	}
 
+	// Reset statistics
+	public void ResetStats(){
+		PlayerPrefs.DeleteAll ();
+		txtAchievements.text="Not yet...";
+		txtBestScore.text="Best score not set yet...";
+		ShowGameAchievements ();
+		continuable = false;
+		btnContinue.SetActive (false);
+	}
+
 	// Quitting the game
 	public void QuitGame(){
-		print ("Bye.");
 		Application.Quit();
 	}
 
 	// Use this for initialization
 	void Start(){
-		if (!PlayerPrefs.HasKey ("CheckPoint")) {
-			continuable=false;
+		if (!PlayerPrefs.HasKey ("Checkpoint")) {
+			continuable = false;
 			btnContinue.SetActive (false);
+		}
+		if (PlayerPrefs.HasKey ("JustFinished")) {
+			print("Just finished!");
+			PlayerPrefs.DeleteKey("JustFinished");
+			ShowGameAchievements();
+			ShowGameCredits();
 		}
 	}
 	// Update is called once per frame
 	void Update(){
 
 		// Escape key closes the window if it is open
-		if (aboutShown) {
-			if (Input.GetKeyDown (KeyCode.Escape))
-				HideAboutGame ();
+		if (creditsShown) {
+			if (
+				Input.GetKeyDown (KeyCode.Escape) ||
+				Input.GetKeyDown (KeyCode.Return)
+			)
+				HideGameCredits ();
+		}
+		else if (controlsShown) {
+			if (
+				Input.GetKeyDown (KeyCode.Escape) ||
+				Input.GetKeyDown (KeyCode.Return)
+			)
+				HideGameControls ();
+		}
+		else if(achievementsShown) {
+			if (
+				Input.GetKeyDown (KeyCode.Escape) ||
+				Input.GetKeyDown (KeyCode.Return)
+				)
+				HideGameAchievements ();
 		}
 		else if(exitShown){
 			if (Input.GetKeyDown (KeyCode.Escape))
@@ -97,6 +152,7 @@ public class MenuScript:MonoBehaviour{
 				// Else start new game
 				else StartNewGame();
 			}
+
 		}
 	}
 }

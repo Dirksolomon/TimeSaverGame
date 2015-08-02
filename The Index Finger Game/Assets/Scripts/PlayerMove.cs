@@ -1,4 +1,8 @@
-﻿using UnityEngine;
+﻿/**
+	Autor: Mikhail Timofeev
+	Updated: 2.8.2015
+*/
+using UnityEngine;
 using System.Collections;
 
 public class PlayerMove : MonoBehaviour {
@@ -52,26 +56,12 @@ public class PlayerMove : MonoBehaviour {
 			(
 				Input.GetKeyDown(KeyCode.W) || // if user presses W
 				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKeyDown(KeyCode.Space) || // if user presses Spacebar
-				Input.GetKeyDown("8") // if user presses 8
+				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
 			)
-			){
-			/*
-
-			// the first action to try is hiding
-			if(isHidable){
-				isHidden=true;
-				print ("Hidden!");
-			}
-			// if hiding was not done, jump (if there is nothing above)
-			else
-
-			*/
+		){
 			if(!Physics2D.Raycast(transform.position,Vector2.up,0.4f)){
-				//rb2d.AddForce(Vector2.up*jump);
-				//transform.Translate(Vector2.up*Time.deltaTime*jump*20);
 				
-				// jumping from crouching position is higher
+				// high jump
 				if(isCrouching==true){
 					rb2d.velocity = Vector2.up * jump * 1.3f;
 					//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
@@ -89,12 +79,11 @@ public class PlayerMove : MonoBehaviour {
 		// Horizontal movement (remove sliding somehow!)
 		float h=Input.GetAxis("Horizontal");
 
+		// moving slower when crouching
 		if (isCrouching)
-			h *= 0.75f;
-		else
-			h *= 2f;
+			h *= 0.5f;
 
-		rb2d.AddForce((Vector2.right*speed)*h*20);
+		rb2d.AddForce((Vector2.right*speed)*h*40);
 		//print (rb2d.velocity);
 
 		
@@ -147,32 +136,18 @@ public class PlayerMove : MonoBehaviour {
 	// Checks if the player bumps into something specific.
 	void OnCollisionEnter2D(Collision2D col){
 
-		//print (col.gameObject.layer);
 		// we landed
-		if (col.gameObject.tag == "Ground"){
-			isJumping = false; // top surface of elements is ground
-
-			//print ("landed on the ground");
+		if (
+			col.gameObject.tag == "Ground" &&
+		    !Physics2D.Raycast(transform.position,Vector2.up,0.4f)
+		){
+			isJumping = false;
 		}
-		/*
-		if(col.gameObject.tag!="Ground")
-			print ("Player met "+col.gameObject.name);
-		*/
-
-		// Enables jumping key and removes animation of jumping when touching ground
-		//if(col.gameObject.tag=="Ground" && isJumping==true)
 
 		//Checks if player hits hazard object, killing the character
 		if(col.gameObject.tag=="Hazard"){
 			dead=true;
-			Time.timeScale = 0;
 		}
 
-		//Makes movingplatform parent of player if it has tag "MovingPlatform" in it, making player stand on the moving platform
-		/*if (col.transform.tag == "MovingPlatform") 
-		{
-			rb2d.transform.parent = col.transform;
-			isJumping = false;
-		}*/
 	}
 }
