@@ -55,7 +55,7 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Player") 
 		{
-			Debug.Log ("Works!");
+			//Debug.Log ("Works!");
 			RemoveChild();
 		}
 

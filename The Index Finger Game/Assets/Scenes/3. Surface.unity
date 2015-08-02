@@ -1102,6 +1102,18 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: EnterMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 22424734, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424734, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -800
+      objectReference: {fileID: 0}
+    - target: {fileID: 171606, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
   m_IsPrefabParent: 0
