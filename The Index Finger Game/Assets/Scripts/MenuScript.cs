@@ -49,7 +49,7 @@ public class MenuScript:MonoBehaviour{
 	public void ShowGameAchievements(){
 		if (PlayerPrefs.HasKey ("Achievements")) {
 			txtAchievements.text = PlayerPrefs.GetString ("Achievements");
-			txtBestScore.text="Best score: "+PlayerPrefs.GetInt ("BestScore")+" seconds.\nCan you do it faster?";
+			txtBestScore.text="Best time: "+PlayerPrefs.GetInt ("BestScore")+" seconds.\nCan you do it faster?";
 		}
 		achievementsShown = true;
 		pnlAchievements.SetActive(true);
@@ -101,7 +101,6 @@ public class MenuScript:MonoBehaviour{
 			btnContinue.SetActive (false);
 		}
 		if (PlayerPrefs.HasKey ("JustFinished")) {
-			print("Just finished!");
 			PlayerPrefs.DeleteKey("JustFinished");
 			ShowGameAchievements();
 			ShowGameCredits();

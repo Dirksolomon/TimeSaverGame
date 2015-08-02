@@ -2862,6 +2862,18 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: .0604082607
       objectReference: {fileID: 0}
+    - target: {fileID: 22424734, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22424734, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -800
+      objectReference: {fileID: 0}
+    - target: {fileID: 171606, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}
   m_IsPrefabParent: 0

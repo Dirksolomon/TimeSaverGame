@@ -26,19 +26,22 @@ public class CameraFollow : MonoBehaviour {
 	public GameObject btnRestart;
 	public Text txtInfoText;
 
+	public Text txtScore;
+
 	public static bool justStarted = true;
 	public static bool justEnded = false;
 	//public static string level=Application.loadedLevelName;
 
 	// Use this for initialization
 	void Start(){
-		//print ("Best time for this level: " + PlayerPrefs.GetInt ("Checkscore"));
+		justEnded = false;
 
 		Time.timeScale = 0;
 
 		PlayerPrefs.SetString("Checkpoint",Application.loadedLevelName);
 		txtPausemenuTitle.text ="Level "+Application.loadedLevelName;
 		btnRestart.SetActive (false);
+		panel.SetActive (true);
 		PauseMenu();
 
 		// game starts
@@ -54,6 +57,9 @@ public class CameraFollow : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update(){
+
+		txtScore.text="Time: "+(int)(NextLevel.startTime+Time.time);
+
 		//Starts by checking if player is dead or not
 		if (PlayerMove.dead == false) {
 		
@@ -114,9 +120,9 @@ public class CameraFollow : MonoBehaviour {
 						txtPausemenuTitle.text = "You won!";
 						btnContinue.SetActive (false);
 						btnRestart.SetActive (false);
-						txtInfoText.text = "Your score is " +
+						txtInfoText.text = "Your time is " +
 							PlayerPrefs.GetInt ("Checkscore") +
-							".\nBest score is " +
+							".\nBest time is " +
 							PlayerPrefs.GetInt ("BestScore") + ".\nNice job!";
 
 						// removing the current score (leaving only highscore)
