@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		currentposition = points [pointSelection];
+		//currentposition = points [pointSelection];
 		moveSpeed = setSpeed;
 	}
 	

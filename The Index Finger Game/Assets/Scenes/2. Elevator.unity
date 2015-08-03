@@ -1208,6 +1208,10 @@ Prefab:
       propertyPath: txtInfoText
       value: 
       objectReference: {fileID: 1292067600}
+    - target: {fileID: 11408418, guid: 11d4d84f9215e1e4ab6e7f8877a328fd, type: 2}
+      propertyPath: txtScore
+      value: 
+      objectReference: {fileID: 1292067606}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11d4d84f9215e1e4ab6e7f8877a328fd, type: 2}
   m_IsPrefabParent: 0
@@ -2188,6 +2192,12 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 156424, guid: 75fd95cb6cfcb6248b65836efb8e7ad7, type: 2}
   m_PrefabInternal: {fileID: 1292067599}
+--- !u!114 &1292067606 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11424334, guid: 75fd95cb6cfcb6248b65836efb8e7ad7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1292067599}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1305775561 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 108432, guid: 28c0107a7c54c6d4ead23fcb2fb5ce22, type: 2}

@@ -34,9 +34,8 @@ public class CameraFollow : MonoBehaviour {
 
 	// Use this for initialization
 	void Start(){
-		justEnded = false;
-
 		Time.timeScale = 0;
+		justEnded = false;
 
 		PlayerPrefs.SetString("Checkpoint",Application.loadedLevelName);
 		txtPausemenuTitle.text ="Level "+Application.loadedLevelName;
@@ -45,7 +44,7 @@ public class CameraFollow : MonoBehaviour {
 		PauseMenu();
 
 		// game starts
-		NextLevel.startTime=PlayerPrefs.GetInt("Checkscore");
+		NextLevel.startTime=PlayerPrefs.GetInt("Checkscore")-1;
 
 		PlayerMove.dead=false;
 		//Time.timeScale=1;
