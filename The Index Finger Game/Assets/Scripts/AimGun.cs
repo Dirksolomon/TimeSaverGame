@@ -3,16 +3,26 @@ using System.Collections;
 
 public class AimGun : MonoBehaviour {
 	public Transform Player;
+	private float nextShot = 0.0f;
+	private float interval = 1f;
 
+	public Transform BulletPrefab;
+
+	public LayerMask notToHit;
+	Transform firePoint;
 	// Use this for initialization
-	void Start () {
-	
+	void Start () 
+	{
+		firePoint = transform.FindChild ("FirePoint");
+		if (firePoint == null) 
+		{
+			Debug.LogError("No firepoint");
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-
 		Vector2 Difference = (Player.transform.position - transform.position);
 		Difference.Normalize();
 		float rotateZ = Mathf.Atan2 (Difference.y, Difference.x) * Mathf.Rad2Deg;
@@ -27,5 +37,17 @@ public class AimGun : MonoBehaviour {
 		{
 			transform.rotation = Quaternion.Euler (0f, 0f, rotateZ);
 		}
+		if (Time.time >= nextShot) 
+		{
+			nextShot = Time.time + interval;
+			Shoot ();
+
+		}
+
+	}
+
+	void Shoot()
+	{
+			Instantiate (BulletPrefab, firePoint.position, firePoint.rotation);
 	}
 }

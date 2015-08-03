@@ -3707,6 +3707,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 528180944}
+  BulletPrefab: {fileID: 436834, guid: d33dfe48975f08c49a927307393c1b53, type: 2}
+  notToHit:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &741036700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4936,6 +4940,33 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 8aa2a47770968fd498599d7449d3c4bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &985687745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 985687746}
+  m_Layer: 10
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &985687746
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 985687745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1, y: .100000001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1305598704}
+  m_RootOrder: 0
 --- !u!1 &987954315
 GameObject:
   m_ObjectHideFlags: 0
@@ -5818,6 +5849,18 @@ Prefab:
       propertyPath: facingLeft
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 21244310, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456600, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
+      propertyPath: notToHit.m_Bits
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11456600, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 436834, guid: d33dfe48975f08c49a927307393c1b53, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
   m_IsPrefabParent: 0
@@ -6066,6 +6109,10 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3753464fe6659ec45a8ed05474d7b4bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1305598704 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 404522, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
+  m_PrefabInternal: {fileID: 1244424554}
 --- !u!1 &1308009558
 GameObject:
   m_ObjectHideFlags: 0
@@ -8120,6 +8167,10 @@ Prefab:
       propertyPath: m_Name
       value: EnemyPatrol
       objectReference: {fileID: 0}
+    - target: {fileID: 11456600, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
+      propertyPath: BulletPrefab
+      value: 
+      objectReference: {fileID: 436834, guid: d33dfe48975f08c49a927307393c1b53, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1dd045f5c619f41b9f8ece9ff10637, type: 2}
   m_IsPrefabParent: 0
