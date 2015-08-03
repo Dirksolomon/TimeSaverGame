@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/2. Elevator.unity
   - enabled: 1
     path: Assets/Scenes/3. Surface.unity
+  - enabled: 0
+    path: Assets/Scenes/1. BasementTestingLevel.unity

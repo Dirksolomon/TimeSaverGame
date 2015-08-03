@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour {
 	private float SightRange = 2f;
 //	private Vector2 prevlog = Vector2.zero;
 	public GameObject Gun;
+	Transform EnemyGun;
 
 	public GameObject Guard;
 	
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour {
 	
 	public int pointSelection;
 
-	public bool facingLeft;
+	public static bool facingLeft;
 
 	public GameObject ammo;
 
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour {
 	{
 		currentposition = points [pointSelection];
 		moveSpeed = setSpeed;
+		EnemyGun = transform.FindChild ("NPC1Gun");
 	}
 	
 	// Update is called once per frame
@@ -100,9 +102,15 @@ public class Enemy : MonoBehaviour {
 	{
 		facingLeft = !facingLeft;
 
-		if(facingLeft == true)
-			transform.localScale = new Vector2(-0.3f,0.3f);
-		else
-			transform.localScale = new Vector2(0.3f,0.3f);
+		if (facingLeft == true) 
+		{
+			transform.localScale = new Vector2 (-0.3f, 0.3f);
+			EnemyGun.localScale = new Vector2(1f, 1f);
+		} 
+		else 
+		{
+			transform.localScale = new Vector2 (0.3f, 0.3f);
+			EnemyGun.localScale = new Vector2(-1f, -1f);
+		}
 	}
 }
