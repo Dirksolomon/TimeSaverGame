@@ -7,8 +7,7 @@ public class Enemy : MonoBehaviour {
 	public Transform downLook;
 	public Transform Player;
 	private bool PlayerInSight = false;
-	private float SightRange = 2f;
-//	private Vector2 prevlog = Vector2.zero;
+	private float SightRange = 5f;
 	public GameObject Gun;
 	Transform EnemyGun;
 
@@ -23,9 +22,12 @@ public class Enemy : MonoBehaviour {
 	
 	public int pointSelection;
 
-	public static bool facingLeft;
+	public bool facingLeft;
 
-	public GameObject ammo;
+	public static bool isFacingLeft;
+	private Enemy enemyscript;
+	private Rigidbody2D rb2d;
+
 
 	
 	// Use this for initialization
@@ -34,18 +36,27 @@ public class Enemy : MonoBehaviour {
 		currentposition = points [pointSelection];
 		moveSpeed = setSpeed;
 		EnemyGun = transform.FindChild ("NPC1Gun");
+		rb2d=gameObject.GetComponent<Rigidbody2D>();
+		enemyscript = gameObject.GetComponent<Enemy> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		//Checks if the enemy sees player
 		IcanSeeYou ();
+		//Sets where enemy is facing on the static bool
+		if (facingLeft == true)
+			isFacingLeft = true;
+		else if (facingLeft == false)
+			isFacingLeft = false;
 
 
-
+		//Makes walk towards point with certain movespeed
 		Guard.transform.position = Vector2.MoveTowards (Guard.transform.position, currentposition.position, Time.deltaTime * moveSpeed);
-		
+		//Checks out where the guard is and changes direction when reaching other point
 		if (Guard.transform.position == currentposition.position) 
 		{
+			Debug.Log("GuardHere");
 			pointSelection++;
 			
 			//Checks out lenght of array and if it is at the last point
@@ -62,24 +73,24 @@ public class Enemy : MonoBehaviour {
 
 	void IcanSeeYou()
 	{
+		//Follows player
 		Vector2 LookAtPlayer = (Player.transform.position - transform.position).normalized;
+		//Points where the enemy is looking at
 		Vector2 upLookPos = (upLook.transform.position - transform.position).normalized;
 		Vector2 straightLookPos = (straightLook.transform.position - transform.position).normalized;
 		Vector2 downLookPos = (downLook.transform.position - transform.position).normalized;
-
+		//To debug the sight
 		Debug.DrawRay(transform.position, upLookPos * SightRange, Color.red);
 		Debug.DrawRay(transform.position, downLookPos * SightRange, Color.red);
 		Debug.DrawRay(transform.position, straightLookPos * SightRange, Color.red);
-		//Player is in view
+		//Player is in view, activates the gun hand and also stops
 		if (PlayerInSight == true){
-			//Cheap placeholder kill.
 			Gun.SetActive(true);
-			//PlayerMove.dead = true;
 			moveSpeed = 0;
 			Debug.DrawRay (transform.position, LookAtPlayer * SightRange, Color.green);
-			//PlayerCharacter.dead = true;
 
 		} 
+		//If player is not in sight hides the gun and continues moving
 		else 
 		{
 			if(setSpeed != 0)
@@ -100,17 +111,33 @@ public class Enemy : MonoBehaviour {
 
 	void WalkDirection()
 	{
+		//Checks out where the enemy is facing and adjusts it accordingly.
 		facingLeft = !facingLeft;
 
 		if (facingLeft == true) 
 		{
-			transform.localScale = new Vector2 (-0.3f, 0.3f);
+			transform.localScale = new Vector2 (-1f, 1f);
 			EnemyGun.localScale = new Vector2(1f, 1f);
 		} 
 		else 
 		{
-			transform.localScale = new Vector2 (0.3f, 0.3f);
+			transform.localScale = new Vector2 (1f, 1f);
 			EnemyGun.localScale = new Vector2(-1f, -1f);
 		}
+	}
+	void OnCollisionEnter2D(Collision2D coll){
+
+		if (coll.gameObject.tag == "Player")
+		{
+			Debug.Log("Hit");
+			enemyscript.enabled = false;
+			rb2d.constraints = RigidbodyConstraints2D.None;
+			rb2d.AddForce(Vector2.up * 300);
+			rb2d.AddForce(Vector2.right * 300);
+			//rb2d.rotation
+
+		}
+		
+		
 	}
 }

@@ -5,7 +5,7 @@ public class MovingPlatform : MonoBehaviour {
 
 	public GameObject platform;
 
-	public float moveSpeed;
+	public static float moveSpeed;
 
 	public Transform currentposition;
 
@@ -20,6 +20,7 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		player = GameObject.Find("Character");
 		currentposition = points [pointSelection];
+		moveSpeed = 2;
 	}
 	
 	// Update is called once per frame

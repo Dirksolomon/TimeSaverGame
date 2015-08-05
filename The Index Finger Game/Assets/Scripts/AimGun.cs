@@ -26,16 +26,17 @@ public class AimGun : MonoBehaviour {
 		Vector2 Difference = (Player.transform.position - transform.position);
 		Difference.Normalize();
 		float rotateZ = Mathf.Atan2 (Difference.y, Difference.x) * Mathf.Rad2Deg;
-		transform.rotation = Quaternion.Euler (0f, 0f, -rotateZ);
+		//transform.rotation = Quaternion.Euler (0f, 0f, -rotateZ);
 
 		//Checks out where the enemy is facing and then makes the gun arm rotate accordingly.
-		if (Enemy.facingLeft == true) 
+		if (Enemy.isFacingLeft == true) 
+		{
+			this.transform.localScale = new Vector2(-1,-1);
+			transform.rotation = Quaternion.Euler (0f, 0f, rotateZ);
+		} 
+		else if (Enemy.isFacingLeft == false)
 		{
 			transform.rotation = Quaternion.Euler (0f, 0f, -rotateZ);
-		} 
-		else 
-		{
-			transform.rotation = Quaternion.Euler (0f, 0f, rotateZ);
 		}
 		if (Time.time >= nextShot) 
 		{

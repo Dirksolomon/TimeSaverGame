@@ -43,10 +43,12 @@ public class PlayerMove : MonoBehaviour {
 		//animator.SetBool("isHiding",isHiding);
 
 		// Turns the player around depending on input
-		if(Input.GetAxis("Horizontal")<-0.01f){
+		if(Input.GetAxis("Horizontal")<-0.01f)
+		{
 			transform.localScale = new Vector2(-1,1);
 		}
-		if(Input.GetAxis("Horizontal")>0.01f){
+		if(Input.GetAxis("Horizontal")>0.01f)
+		{
 			transform.localScale = new Vector2(1,1);
 		}
 

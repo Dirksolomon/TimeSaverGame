@@ -9,6 +9,8 @@ TagManager:
   - Obstacle
   - Shadow
   - MovingPlatform
+  - EnemyKill
+  - Wall
   layers:
   - Default
   - TransparentFX

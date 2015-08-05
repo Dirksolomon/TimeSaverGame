@@ -1,0 +1,275 @@
+fileFormatVersion: 2
+guid: a36c153c1ae133846ac677f5d4ef810d
+timeCreated: 1438731261
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BreathinSprite_0
+    21300002: BreathinSprite_1
+    21300004: BreathinSprite_2
+    21300006: BreathinSprite_3
+    21300008: BreathinSprite_4
+    21300010: BreathinSprite_5
+    21300012: BreathinSprite_6
+    21300014: BreathinSprite_7
+    21300016: BreathinSprite_8
+    21300018: BreathinSprite_9
+    21300020: BreathinSprite_10
+    21300022: BreathinSprite_11
+    21300024: BreathinSprite_12
+    21300026: BreathinSprite_13
+    21300028: BreathinSprite_14
+    21300030: BreathinSprite_15
+    21300032: BreathinSprite_16
+    21300034: BreathinSprite_17
+    21300036: BreathinSprite_18
+    21300038: BreathinSprite_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: BreathinSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 877
+        width: 152
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_1
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 876
+        width: 152
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_2
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 877
+        width: 152
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_3
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 876
+        width: 152
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_4
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 877
+        width: 152
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 579
+        width: 152
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_6
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 579
+        width: 152
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_7
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 579
+        width: 152
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_8
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 579
+        width: 152
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_9
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 579
+        width: 152
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 319
+        width: 192
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_11
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 320
+        width: 202
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_12
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 321
+        width: 199
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_13
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 320
+        width: 201
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_14
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 319
+        width: 193
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_15
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 152
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_16
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 0
+        width: 153
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_17
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 0
+        width: 132
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_18
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 0
+        width: 183
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: BreathinSprite_19
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 0
+        width: 156
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

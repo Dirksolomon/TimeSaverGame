@@ -5,7 +5,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
+public class NewPlayerMoveForBiggerSpriteBONETEST : MonoBehaviour {
 
 	public float speed; // speed
 	public float jump; // jump
@@ -14,10 +14,14 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 	public bool isCrouching; // is now performing crouch
 
 	private Rigidbody2D rb2d;
-	//private Animator animator;
+	private Animator animator;
 	public static bool dead=false;
 	//public static float deathcooldown;
 	private BoxCollider2D b;
+	private Transform Nathan;
+	private GameObject NathanGameObject;
+	private GameObject NathanCrawlObject;
+	private GameObject NathanJumping;
 
 	// Actions to perform in the beginning
 	void Start(){
@@ -26,29 +30,51 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 		//dead=false;
 
 		rb2d=gameObject.GetComponent<Rigidbody2D>();
-		//animator=gameObject.GetComponent<Animator>();
+		animator=GetComponentInChildren<Animator>();
 		b=gameObject.GetComponent<BoxCollider2D>();
+		NathanGameObject = GameObject.Find ("Nathan");
+		NathanCrawlObject = GameObject.Find("CrawlNathan");
+		NathanJumping = GameObject.Find ("jump");
+
+		Nathan = transform.FindChild ("Nathan");
 	}
 	
 	// Update is called once per frame
 	void Update(){
+		Debug.DrawRay(Nathan.position,Vector2.up*2, Color.red);
 
-		// Checks if certain animation has to be played with isJumping bool and speed of the character
-		//animator.SetBool("isJumping",isJumping);
-		//animator.SetBool ("isCrouching", isCrouching);
-		//animator.SetFloat("Movespeed",Mathf.Abs(Input.GetAxis("Horizontal")));
+		// ANIMATION START**
+		if (isJumping == true) 
+		{
+			NathanGameObject.SetActive(false);
+			NathanJumping.SetActive(true);
+		} 
+		else if (isJumping == false)
+		{
+			NathanGameObject.SetActive(true);
+			NathanJumping.SetActive(false);
+		}
 
-		//animator.SetBool("isCrouching",isCrouching);
+		animator.SetFloat("Movespeed",Mathf.Abs(Input.GetAxis("Horizontal")));
+
+		if (isCrouching == true) 
+		{
+			NathanGameObject.SetActive(false);
+			NathanCrawlObject.SetActive(true);
+			//animator.SetBool ("isCrouching", isCrouching);
+		} 
+		else if (isCrouching == false && isJumping == false)
+		{
+			NathanGameObject.SetActive(true);
+			NathanCrawlObject.SetActive(false);
+		}
 
 		//animator.SetBool("isHiding",isHiding);
 
-		// Turns the player around depending on input
-		if(Input.GetAxis("Horizontal")<-0.01f){
-			transform.localScale = new Vector2(1,1);
-		}
-		if(Input.GetAxis("Horizontal")>0.01f){
-			transform.localScale = new Vector2(-1,1);
-		}
+		// ANIMATION END**
+
+		// TURNS THE PLAYER AROUND DEPENDING ON INPUT
+		TurnCharacter ();
 
 		// Jumping (or hiding!)
 		if(
@@ -59,7 +85,7 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
 			)
 		){
-			if(!Physics2D.Raycast(transform.position,Vector2.up,0.4f)){
+			if(!Physics2D.Raycast(Nathan.position,Vector2.up,2)){
 				
 				// high jump
 				if(isCrouching==true){
@@ -114,7 +140,7 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 				Input.GetKey(KeyCode.LeftControl) ||
 				Input.GetKey(KeyCode.RightControl)
 			) &&
-			!Physics2D.Raycast(transform.position,Vector2.up,0.4f)
+			!Physics2D.Raycast(Nathan.position,Vector2.up,2)
 		){
 			Stand();
 		}
@@ -123,13 +149,13 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 
 	// Crouching code, makes the boxcollider smaller
 	void Crouch(){
-		b.size=new Vector2(1.41f,1.22f);
+		b.size=new Vector2(1.82f,2.25f);
 		isCrouching=true;
 	}
 
 	// Standing up code, makes the boxcollider normal sized again
 	void Stand(){
-		b.size=new Vector2(1.41f,2.79f);
+		b.size=new Vector2(1.82f,4.54f);
 		isCrouching=false;
 	}
 
@@ -139,7 +165,7 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 		// we landed
 		if (
 			col.gameObject.tag == "Ground" &&
-		    !Physics2D.Raycast(transform.position,Vector2.up,0.4f)
+		    !Physics2D.Raycast(Nathan.position,Vector2.up,2)
 		){
 			isJumping = false;
 		}
@@ -147,6 +173,28 @@ public class NewPlayerMoveForBiggerSprite : MonoBehaviour {
 		//Checks if player hits hazard object, killing the character
 		if(col.gameObject.tag=="Hazard"){
 			dead=true;
+		}
+
+	}
+	//TURNS CHARACTER DEPENDING ON INPUT
+	void TurnCharacter()
+	{
+		if(Input.GetAxis("Horizontal")<-0.01f){
+			Nathan.localScale = new Vector2(1f,1f);
+			NathanCrawlObject.transform.localScale = new Vector2(1f,1f);
+			NathanJumping.transform.localScale = new Vector2(1.8f,1.8f);
+		}
+		if(Input.GetAxis("Horizontal")>0.01f){
+			Nathan.localScale = new Vector2(-1f,1f);
+			NathanCrawlObject.transform.localScale = new Vector2(-1f,1f);
+			NathanJumping.transform.localScale = new Vector2(-1.8f,1.8f);
+		}
+		
+		if(Input.GetAxis("Horizontal")<-0.01f){
+
+		}
+		if(Input.GetAxis("Horizontal")>0.01f){
+
 		}
 
 	}
