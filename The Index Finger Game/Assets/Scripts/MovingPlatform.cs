@@ -5,7 +5,7 @@ public class MovingPlatform : MonoBehaviour {
 
 	public GameObject platform;
 
-	public static float moveSpeed;
+	public float moveSpeed;
 
 	public Transform currentposition;
 
@@ -20,7 +20,6 @@ public class MovingPlatform : MonoBehaviour {
 	{
 		player = GameObject.Find("Character");
 		currentposition = points [pointSelection];
-		moveSpeed = 2;
 	}
 	
 	// Update is called once per frame
@@ -42,8 +41,7 @@ public class MovingPlatform : MonoBehaviour {
 		}
 
 	}
-
-
+	
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Player") 

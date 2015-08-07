@@ -30,11 +30,11 @@ public class NewCameraFollow : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start(){
-		Time.timeScale = 0;
+		Time.timeScale = 1;
 		justEnded = false;
 		
 		PlayerPrefs.SetString("Checkpoint",Application.loadedLevelName);
-		txtPausemenuTitle.text ="Level "+Application.loadedLevelName;
+		//txtPausemenuTitle.text ="Level "+Application.loadedLevelName;
 		btnRestart.SetActive (false);
 		panel.SetActive (true);
 		PauseMenu();
@@ -81,8 +81,9 @@ public class NewCameraFollow : MonoBehaviour {
 			Time.timeScale = 0;
 			PlayerPrefs.SetInt("Checkscore",(int)(Time.time-NextLevel.startTime));
 			panel.SetActive (true);
-			txtPausemenuTitle.text="Game over";
+			txtPausemenuTitle.text="Perhaps another timeline will be more successful for you.";
 			btnContinue.SetActive(false);
+			btnRestart.SetActive(true);
 		}
 		
 		//Keeps checking if stuff in PauseMenu(); is happening
@@ -90,9 +91,9 @@ public class NewCameraFollow : MonoBehaviour {
 		
 		
 		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
-			GetComponent<Camera> ().orthographicSize = Mathf.Max(GetComponent<Camera> ().orthographicSize-1, 3);
+			GetComponent<Camera> ().orthographicSize = Mathf.Max(GetComponent<Camera> ().orthographicSize-1, 7);
 		else if (Input.GetAxis("Mouse ScrollWheel") < 0) // backward
-			GetComponent<Camera> ().orthographicSize = Mathf.Min(GetComponent<Camera> ().orthographicSize+1, 4);
+			GetComponent<Camera> ().orthographicSize = Mathf.Min(GetComponent<Camera> ().orthographicSize+1, 15);
 	}
 	
 	public void PauseMenu(){
@@ -112,7 +113,7 @@ public class NewCameraFollow : MonoBehaviour {
 				}
 				else{
 					if (justEnded){
-						txtPausemenuTitle.text = "You won!";
+						txtPausemenuTitle.text = "Keep going.";
 						btnContinue.SetActive (false);
 						btnRestart.SetActive (false);
 						txtInfoText.text = "Your time is " +
@@ -125,7 +126,7 @@ public class NewCameraFollow : MonoBehaviour {
 						PlayerPrefs.DeleteKey("Checkscore");
 					}
 					else{
-						txtPausemenuTitle.text = "Pause";
+						txtPausemenuTitle.text = "Patience is a virtue.";
 						txtContinue.text = "Continue";
 						btnContinue.SetActive (true);
 						btnRestart.SetActive (true);

@@ -1,12 +1,13 @@
 ﻿/**
-	Autor: Mikhail Timofeev
-	Updated: 2.8.2015
+	Author: Mikhail Timofeev and Jukka Holopainen
+	Updated: 6.8.2015
 */
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
 public class MenuScript:MonoBehaviour{
+	
 
 	public GameObject btnContinue;
 	public GameObject pnlControls;
@@ -32,7 +33,7 @@ public class MenuScript:MonoBehaviour{
 		PlayerPrefs.SetInt ("Checkscore", 0);
 
 		Application.LoadLevel("1. Basement"); // new game
-		PlayerMove.dead = false;
+		NewPlayerMove.dead = false;
 	}
 
 	// Controls for the game
@@ -82,8 +83,8 @@ public class MenuScript:MonoBehaviour{
 	// Reset statistics
 	public void ResetStats(){
 		PlayerPrefs.DeleteAll ();
-		txtAchievements.text="Not yet...";
-		txtBestScore.text="Best score not set yet...";
+		txtAchievements.text="These did not make for the final product.";
+		txtBestScore.text="The scoring system by timer did not make the cut! \nPress Reset button to reset game continue though.";
 		ShowGameAchievements ();
 		continuable = false;
 		btnContinue.SetActive (false);
@@ -105,6 +106,7 @@ public class MenuScript:MonoBehaviour{
 			ShowGameAchievements();
 			ShowGameCredits();
 		}
+
 	}
 	// Update is called once per frame
 	void Update(){

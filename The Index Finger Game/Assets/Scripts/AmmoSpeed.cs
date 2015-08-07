@@ -17,7 +17,7 @@ public class AmmoSpeed : MonoBehaviour {
 			transform.Translate (Vector2.right * Time.deltaTime * moveSpeed * 1);
 			Destroy (gameObject, 1);
 		} 
-		else 
+		else if (Enemy.isFacingLeft == false)
 		{
 			transform.Translate (Vector2.right * Time.deltaTime * moveSpeed * 1);
 			Destroy (gameObject, 1);

@@ -11,68 +11,69 @@ public class NewPlayerMove : MonoBehaviour {
 		public bool isAttacking;
 		public bool isClinging;
 		public bool isFalling;
-		
 		private Rigidbody2D rb2d;
 		private Animator animator;
 		public static bool dead=false;
 		//public static float deathcooldown;
 		private BoxCollider2D b;
-		public BoxCollider2D attack;
+		public GameObject attack;
+
+		public static int fuelcollected;
 		
 		// Actions to perform in the beginning
-		void Start(){
-			
-			// Makes player not dead and also places few gameobjects into variables
-			//dead=false;
-			
+		void Start()
+		{
 			rb2d=gameObject.GetComponent<Rigidbody2D>();
 			animator=gameObject.GetComponent<Animator>();
 			b=gameObject.GetComponent<BoxCollider2D>();
+			//On load sets fuel amount to 0.
+			fuelcollected = 0;
 		}
 		
 		// Update is called once per frame
-		void Update(){
-			
-			// Checks if certain animation has to be played with isJumping bool and speed of the character
-			animator.SetBool("isJumping",isJumping);
-			animator.SetBool ("IsCrouching", isCrouching);
-			animator.SetFloat("moveSpeed",Mathf.Abs(Input.GetAxis("Horizontal")));
-			animator.SetBool ("isAttacking", isAttacking);
-			animator.SetBool ("TouchingWall", isClinging);
-			animator.SetBool ("isFalling", isFalling);
-		
-			//animator.SetBool("isCrouching",isCrouching);
-			
-			//animator.SetBool("isHiding",isHiding);
-			
+		void Update()
+		{
+			//Pushes the updates into the animator
+			Animation ();
 			// Turns the player around depending on input
 			TurnAround ();
-			
-			// Jumping (or hiding!)
-			if(
-				isJumping == false && // do not jump if already jumping
-				(
-				Input.GetKeyDown(KeyCode.W) || // if user presses W
-				Input.GetKeyDown(KeyCode.UpArrow) || // if user presses arrow UP
-				Input.GetKeyDown(KeyCode.Space) // if user presses Spacebar
-				)
-				){
-				if(!Physics2D.Raycast(transform.position,Vector2.up,2f)){
-					
-					// high jump
-					if(isCrouching==true){
-						rb2d.velocity = Vector2.up * jump * 1.3f;
-						//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
-					}
-					
-					// usual jump
-					else rb2d.velocity = Vector2.up * jump;
-					
-					isCrouching = false;
-					isJumping = true;
+
+
+		// Jumping (or hiding!)
+		if (isJumping == false // do not jump if already jumping
+			&& (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))) { //Checks what key is pressed for jumping
+
+			if(!Physics2D.Raycast(transform.position,Vector2.up,2f))
+			{
+				
+				// high jump
+				if(isCrouching==true)
+				{
+					rb2d.velocity = Vector2.up * jump * 1.3f;
+					//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
 				}
+				
+				// usual jump
+				else rb2d.velocity = Vector2.up * jump;
+				
+				isCrouching = false;
+				isJumping = true;
 			}
 
+
+
+
+
+		} 
+		
+
+		
+	}
+		void FixedUpdate()
+		{
+
+
+		
 		float h=Input.GetAxis("Horizontal");
 		
 		// moving slower when crouching
@@ -80,7 +81,6 @@ public class NewPlayerMove : MonoBehaviour {
 			h *= 0.5f;
 		
 		rb2d.AddForce((Vector2.right*speed)*h*40);
-		//print (rb2d.velocity);
 		
 		
 		
@@ -103,60 +103,52 @@ public class NewPlayerMove : MonoBehaviour {
 		}
 		
 		//Checks if crouching key is not pressed and there is nothing above the character to stand
-		if(
-			!(
-			Input.GetKey(KeyCode.S) ||
-			Input.GetKey(KeyCode.DownArrow) ||
-			Input.GetKey(KeyCode.LeftControl) ||
-			Input.GetKey(KeyCode.RightControl)
-			) &&
-			!Physics2D.Raycast(transform.position,Vector2.up,2f)
-			){
+		if(!(Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) 
+		   && !Physics2D.Raycast(transform.position,Vector2.up,2f))
+		{
 			Stand();
 		}
 		
 		//Attack
-		if (Input.GetKey ("left shift")) 
+		if (Input.GetKey ("left shift") || Input.GetKey ("right shift")) 
 		{
-			attack.enabled = true;
+			attack.SetActive(true);
 			isAttacking = true;
 		} 
 		else 
 		{
-			attack.enabled = false;
+			attack.SetActive(false);
 			isAttacking = false;
 		}
-		
 	}
-	void FixedUpdate(){
-		// Horizontal movement (remove sliding somehow!)
-			
-		}
-		
-		
-		// Crouching code, makes the boxcollider smaller
-		void Crouch(){
-		b.size=new Vector2(b.size.x,1.35f);
+	
+	
+	// Crouching code, makes the boxcollider smaller
+		void Crouch()
+		{
+			b.size=new Vector2(b.size.x,1.35f);
 			isCrouching=true;
 		}
 		
 		// Standing up code, makes the boxcollider normal sized again
-		void Stand(){
-		b.size=new Vector2(b.size.x,2.65f);
+		void Stand()
+		{
+			b.size=new Vector2(b.size.x,2.28f);
 			isCrouching=false;
 		}
 		
 		// Checks if the player bumps into something specific.
-		void OnCollisionEnter2D(Collision2D col){
+		void OnCollisionEnter2D(Collision2D col)
+		{
 			
 			// we landed
 			if (
 				col.gameObject.tag == "Ground" &&
-			!Physics2D.Raycast (transform.position, Vector2.up, 2f)
+			!Physics2D.Raycast (transform.position, Vector2.up, 0.5f)
 				) {
 			isJumping = false;
 			isClinging = false;
-		}
+			}
 			if (col.gameObject.tag == "Wall") 
 			{
 				isJumping = false;
@@ -166,13 +158,15 @@ public class NewPlayerMove : MonoBehaviour {
 				isClinging = false;
 			
 			//Checks if player hits hazard object, killing the character
-			if(col.gameObject.tag=="Hazard"){
-				Debug.Log ("Touching");
+			if(col.gameObject.tag=="Hazard")
+			{
+				//Debug.Log ("Touching");
 				dead=true;
 			}
 			
 		}
 
+		//Turns the character around
 		void TurnAround()
 		{
 			if(Input.GetAxis("Horizontal")<-0.01f)
@@ -185,4 +179,25 @@ public class NewPlayerMove : MonoBehaviour {
 				transform.localScale = new Vector2(-1,1);
 			}
 		}
+
+		//Puts variables into animator which then animates the character
+		void Animation()
+		{
+			animator.SetBool("isJumping",isJumping);
+			animator.SetBool ("IsCrouching", isCrouching);
+			animator.SetFloat("moveSpeed",Mathf.Abs(Input.GetAxis("Horizontal")));
+			animator.SetBool ("isAttacking", isAttacking);
+			animator.SetBool ("TouchingWall", isClinging);
+			animator.SetBool ("isFalling", isFalling);
+		}
+		
+		void OnTriggerEnter2D(Collider2D other)
+		{
+			if (other.tag == "FuelBottle") 
+			{
+				fuelcollected++;
+				//Debug.Log(fuelcollected);
+			}
+		}
+
 	}

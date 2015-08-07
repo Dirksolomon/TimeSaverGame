@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class ButtonPlatform : MonoBehaviour {
@@ -35,3 +35,4 @@ public class ButtonPlatform : MonoBehaviour {
 		}
 	}
 }
+*/

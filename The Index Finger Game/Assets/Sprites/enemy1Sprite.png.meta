@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 88e309269f7033144b817fc37ca3c778
+timeCreated: 1438827840
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: enemy1Sprite_0
+    21300002: enemy1Sprite_1
+    21300004: enemy1Sprite_2
+    21300006: enemy1Sprite_3
+    21300008: enemy1Sprite_4
+    21300010: enemy1Sprite_5
+    21300012: enemy1Sprite_6
+    21300014: enemy1Sprite_7
+    21300016: enemy1Sprite_8
+    21300018: enemy1Sprite_9
+    21300020: enemy1Sprite_10
+    21300022: enemy1Sprite_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: enemy1Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 645
+        width: 141
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 645
+        width: 141
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 645
+        width: 141
+        height: 283
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 645
+        width: 141
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 645
+        width: 141
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 336
+        width: 141
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 336
+        width: 141
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 336
+        width: 141
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 336
+        width: 141
+        height: 290
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 336
+        width: 141
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 204
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: enemy1Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 0
+        width: 303
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
