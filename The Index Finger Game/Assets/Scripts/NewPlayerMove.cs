@@ -11,7 +11,6 @@ public class NewPlayerMove : MonoBehaviour {
 		public bool isAttacking; // is attacking
 		public bool isClinging; // is clinging on wall
 		public bool isFalling;
-		public bool jumped;
 
 		private Rigidbody2D rb2d; // for players ridigbody
 		private Animator animator; //for animator
@@ -47,10 +46,24 @@ public class NewPlayerMove : MonoBehaviour {
 		if (isJumping == false // do not jump if already jumping
 		    && (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.Space))) //Checks what key is pressed for jumping
 		{ 
-			jumped = true;
 
+			if(!Physics2D.Raycast(transform.position,Vector2.up,2f))
+			{
+				
+				// high jump
+				if(isCrouching==true)
+				{
+					rb2d.velocity = Vector2.up * jump * 1.3f;
+				}
+				
+				// usual jump
+				else rb2d.velocity = Vector2.up * jump;
+
+				//isCrouching for animator and isJumping for animator and check if the player is jumping so they cannot jump again
+				isCrouching = false;
+				isJumping = true;
+			}
 		} 
-		else jumped = false;
 
 		// Checking if crouching key is pressed
 		if 	(
@@ -68,28 +81,6 @@ public class NewPlayerMove : MonoBehaviour {
 	}
 		void FixedUpdate()
 		{
-		if (jumped == true) 
-		{
-			if (!Physics2D.Raycast (transform.position, Vector2.up, 2f)) {
-			
-				// high jump
-				if (isCrouching == true) {
-					rb2d.velocity = Vector2.up * jump * 1.3f;
-				}
-			
-			// usual jump
-			else
-					rb2d.velocity = Vector2.up * jump;
-			
-				//isCrouching for animator and isJumping for animator and check if the player is jumping so they cannot jump again
-				isCrouching = false;
-				isJumping = true;
-			}
-		}
-			
-
-
-
 			//Gets input by axis and sets it into variable
 			float h=Input.GetAxis("Horizontal");
 			
@@ -111,6 +102,7 @@ public class NewPlayerMove : MonoBehaviour {
 			{
 				rb2d.velocity = new Vector2(-maxspeed, rb2d.velocity.y);
 			}
+			
 			//Checks if crouching key is not pressed and there is nothing above the character to stand
 			if 	(
 				!(Input.GetKey(KeyCode.S) 
