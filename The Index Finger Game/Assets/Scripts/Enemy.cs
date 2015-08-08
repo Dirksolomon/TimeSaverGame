@@ -18,24 +18,27 @@ public class Enemy : MonoBehaviour {
 	Transform EnemyGun;
 	//Bool to see if enemy is dead
 	private bool guardisdead = false;
-
+	//The enemy object
 	public GameObject Guard;
-	
+	//Speeds for moving about
 	public float setSpeed;
 	private float moveSpeed;
-	
+
+	//Position they are trying to get to
 	public Transform currentposition;
-	
+	//Points of movement in array
 	public Transform[] points;
-	
 	public int pointSelection;
 
+	//Checks where the enemy will be facing
 	public bool facingLeft;
-
+	//So gun arm can use it
 	public static bool isFacingLeft;
+	//Spot for the enemys script, aka this one
 	private Enemy enemyscript;
+	//Enemy objects rigidbody
 	private Rigidbody2D rb2d;
-
+	//Audio from the enemy
 	private AudioSource death;
 
 
@@ -43,6 +46,7 @@ public class Enemy : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+		//Set things into the corresponding variables
 		anim = gameObject.GetComponent<Animator> ();
 		currentposition = points [pointSelection];
 		moveSpeed = setSpeed;
@@ -80,7 +84,7 @@ public class Enemy : MonoBehaviour {
 			currentposition = points[pointSelection];
 			Invoke("WalkDirection", 0f);
 		}
-
+		//Checks where the enemy is facing and sets it into the static bool so it can be used by NPC1Guns AimGun script
 		if (facingLeft == true) 
 		{
 			isFacingLeft = true;
@@ -193,6 +197,7 @@ public class Enemy : MonoBehaviour {
 		death.Play ();
 		yield return new WaitForSeconds(0.1f);
 		enemyscript.enabled = false;
+		//Launches the enemy off a bit when they die
 		rb2d.AddForce(Vector2.up * 10);
 		rb2d.AddForce(Vector2.right * 10);
 	}

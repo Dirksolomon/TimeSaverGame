@@ -3,15 +3,7 @@ using System.Collections;
 
 public class CreditScreenController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	//Controller for the last screen so the player can press buttons quitting the game or returning to main menu
 
 	public void ToMenu()
 	{

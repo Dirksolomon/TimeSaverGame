@@ -12,12 +12,11 @@ public class NewPlayerMove : MonoBehaviour {
 		public bool isClinging; // is clinging on wall
 		public bool isFalling;
 
-		private Rigidbody2D rb2d;
-		private Animator animator;
-		public static bool dead=false;
-		//public static float deathcooldown;
-		private BoxCollider2D b;
-		public GameObject attack;
+		private Rigidbody2D rb2d; // for players ridigbody
+		private Animator animator; //for animator
+		public static bool dead=false; //to check if dead
+		private BoxCollider2D b; // for 2D boxcollider
+		public GameObject attack; // for child trigger
 
 		public static int fuelcollected;
 		
@@ -55,12 +54,12 @@ public class NewPlayerMove : MonoBehaviour {
 				if(isCrouching==true)
 				{
 					rb2d.velocity = Vector2.up * jump * 1.3f;
-					//transform.Translate(Vector2.up*Time.deltaTime*jump*5);
 				}
 				
 				// usual jump
 				else rb2d.velocity = Vector2.up * jump;
-				
+
+				//isCrouching for animator and isJumping for animator and check if the player is jumping so they cannot jump again
 				isCrouching = false;
 				isJumping = true;
 			}
@@ -82,17 +81,21 @@ public class NewPlayerMove : MonoBehaviour {
 	}
 		void FixedUpdate()
 		{
+			//Gets input by axis and sets it into variable
 			float h=Input.GetAxis("Horizontal");
 			
 			// moving slower when crouching
 			if (isCrouching)
 				h *= 0.5f;
 			
+			//Makes the player move by adding force to the rigid body by the variable
 			rb2d.AddForce((Vector2.right*speed)*h*40);
 			
 			
 			
 			// Checking some speed so the player does not fly off the screen, limiting it to certain number
+			// Not used now as the player will slide otherwise, will leave it here if there comes any need to play with it
+		/*
 			if (rb2d.velocity.x > maxspeed)
 			{
 				rb2d.velocity = new Vector2(maxspeed, rb2d.velocity.y);
@@ -101,7 +104,7 @@ public class NewPlayerMove : MonoBehaviour {
 			{
 				rb2d.velocity = new Vector2(-maxspeed, rb2d.velocity.y);
 			}
-
+		*/
 			//Checks if crouching key is not pressed and there is nothing above the character to stand
 			if 	(
 				!(Input.GetKey(KeyCode.S) 
@@ -111,16 +114,16 @@ public class NewPlayerMove : MonoBehaviour {
 			   	&& !Physics2D.Raycast(transform.position,Vector2.up,2f)
 				)
 			{
-				Stand();
+				Stand(); //Stands the player up
 			}
 			
-			//Attacks when keeping shift down
+			//Attacks when keeping shift down by setting the trigger collider active
 			if (Input.GetKey ("left shift") || Input.GetKey ("right shift")) 
 			{
 				attack.SetActive(true);
 				isAttacking = true;
 			} 
-			else 
+			else //When not pressing shift down anymore, sets the trigger collider off 
 			{
 				attack.SetActive(false);
 				isAttacking = false;
@@ -142,18 +145,20 @@ public class NewPlayerMove : MonoBehaviour {
 			isCrouching=false;
 		}
 		
-		// Checks if the player bumps into something specific.
+		// Checks if the player bumps into something
 		void OnCollisionEnter2D(Collision2D col)
 		{
 			
 			// we landed
-			if (
+			if 	(
 				col.gameObject.tag == "Ground" &&
-			!Physics2D.Raycast (transform.position, Vector2.up, 0.5f)
-				) {
+				!Physics2D.Raycast (transform.position, Vector2.up, 0.5f)
+				) 
+			{
 			isJumping = false;
 			isClinging = false;
 			}
+
 			if (col.gameObject.tag == "Wall") 
 			{
 				isJumping = false;

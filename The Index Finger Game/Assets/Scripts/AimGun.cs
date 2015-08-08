@@ -2,11 +2,14 @@
 using System.Collections;
 
 public class AimGun : MonoBehaviour {
+	//Transform variable for player characters transform
 	private Transform Player;
+	//For shooting interval
 	private float nextShot = 0.0f;
 	private float interval = 1f;
+	//Audio variable
 	private AudioSource gunshot;
-
+	//Bullet prefab variable
 	public Transform BulletPrefab;
 	
 	Transform firePoint;
@@ -15,13 +18,11 @@ public class AimGun : MonoBehaviour {
 	{
 		//Gets the audioclip which is to be played when gun shoots.
 		gunshot = gameObject.GetComponent<AudioSource> ();
+		//Sets player objects transform into variable
 		Player = GameObject.Find ("Character").transform;
+
 		//Finds the firepoint from which bullets fly off
 		firePoint = transform.FindChild ("FirePoint");
-		if (firePoint == null) 
-		{
-			Debug.LogError("No firepoint");
-		}
 	}
 	
 	// Update is called once per frame
@@ -32,7 +33,7 @@ public class AimGun : MonoBehaviour {
 		Difference.Normalize();
 		float rotateZ = Mathf.Atan2 (Difference.y, Difference.x) * Mathf.Rad2Deg;
 
-		//Checks out where the enemy is facing and then makes the gun arm rotate accordingly.
+		//Checks out where the enemy is facing and then makes the gun arm rotate accordingly with its firepoint.
 		if (Enemy.isFacingLeft == true) 
 		{
 			transform.rotation = Quaternion.Euler (0f, 0f, -rotateZ);

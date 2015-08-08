@@ -3200,11 +3200,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 739723755}
   m_LocalRotation: {x: 0, y: 0, z: .508486092, w: .861070216}
-  m_LocalPosition: {x: -16.6800003, y: -5.5999999, z: 0}
+  m_LocalPosition: {x: -7.92070293, y: -55.0287857, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1028871586}
+  m_RootOrder: 12
 --- !u!1 &742519667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4324,9 +4324,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e4990bbbd3ed19945954361cac9b6560, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a44bb42a71e858442b3f128bca3623c5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .305000007
+  m_Volume: .203999996
   m_Pitch: .949999988
   Loop: 1
   Mute: 0
@@ -4528,6 +4528,9 @@ Transform:
   - {fileID: 536230481}
   - {fileID: 142721069}
   - {fileID: 1243253845}
+  - {fileID: 2049705547}
+  - {fileID: 739723757}
+  - {fileID: 1809980457}
   m_Father: {fileID: 546977279}
   m_RootOrder: 6
 --- !u!1 &1031541124
@@ -6824,11 +6827,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1809980455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.2700005, y: 64.6699982, z: 0}
+  m_LocalPosition: {x: 28.0292969, y: 15.2412109, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1028871586}
+  m_RootOrder: 13
 --- !u!1 &1815363325
 GameObject:
   m_ObjectHideFlags: 0
@@ -7521,11 +7524,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049705545}
   m_LocalRotation: {x: 0, y: 0, z: .704309046, w: -.709893525}
-  m_LocalPosition: {x: -19.2900009, y: -6.4000001, z: 0}
+  m_LocalPosition: {x: -10.5307035, y: -55.8287888, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 1028871586}
+  m_RootOrder: 11
 --- !u!1 &2054645919
 GameObject:
   m_ObjectHideFlags: 0
