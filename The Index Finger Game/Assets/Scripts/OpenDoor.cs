@@ -3,8 +3,8 @@ using System.Collections;
 
 public class OpenDoor : MonoBehaviour {
 
-	public static bool DoorClosed;
-	public static bool DoorOpen;
+	public bool DoorClosed;
+	public bool DoorOpen;
 	private Animator animator;
 	// Use this for initialization
 	void Start () 
@@ -15,6 +15,7 @@ public class OpenDoor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		//Sets the bools into animator to run animations
 		if(DoorOpen == true)
 		{
 			animator.SetBool("DoorOpen", DoorOpen);

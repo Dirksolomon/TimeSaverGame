@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class NewCameraFollow : MonoBehaviour {
 	
-	public Transform Player;
+	private Transform Player;
 	
 	public Vector2 marg, smooth;
 	
@@ -26,15 +26,14 @@ public class NewCameraFollow : MonoBehaviour {
 	
 	public static bool justStarted = true;
 	public static bool justEnded = false;
-	//public static string level=Application.loadedLevelName;
 	
 	// Use this for initialization
 	void Start(){
+		Player = GameObject.Find ("Character").transform;
 		Time.timeScale = 1;
 		justEnded = false;
 		
 		PlayerPrefs.SetString("Checkpoint",Application.loadedLevelName);
-		//txtPausemenuTitle.text ="Level "+Application.loadedLevelName;
 		btnRestart.SetActive (false);
 		panel.SetActive (true);
 		PauseMenu();
@@ -43,7 +42,6 @@ public class NewCameraFollow : MonoBehaviour {
 		NextLevel.startTime=PlayerPrefs.GetInt("Checkscore")-1;
 		
 		NewPlayerMove.dead=false;
-		//Time.timeScale=1;
 		//Sets variables for max and min bounds which camera cannot follow past and sets following bool to true so it follows
 		_min=Bounds.bounds.min;
 		_max=Bounds.bounds.max;
@@ -56,15 +54,18 @@ public class NewCameraFollow : MonoBehaviour {
 		txtScore.text="Time: "+(int)(NextLevel.startTime+Time.time);
 		
 		//Starts by checking if player is dead or not
-		if (NewPlayerMove.dead == false) {
+		if (NewPlayerMove.dead == false) 
+		{
 			
 			var x = transform.position.x;
 			var y = transform.position.y;
 			
 			// Camera following the player
-			if (Following) {
+			if (Following) 
+			{
 				if (Mathf.Abs (x - Player.position.x) > marg.x)
 					x = Mathf.Lerp (x, Player.position.x, smooth.x * Time.deltaTime);
+
 				if (Mathf.Abs (y - Player.position.y) > marg.y)
 					y = Mathf.Lerp (y, Player.position.y, smooth.y * Time.deltaTime);
 			}
@@ -77,7 +78,9 @@ public class NewCameraFollow : MonoBehaviour {
 			
 			// Camera moving to show the player
 			transform.position = new Vector3 (x, y, transform.position.z);
-		} else {
+		} 
+		else 
+		{
 			Time.timeScale = 0;
 			PlayerPrefs.SetInt("Checkscore",(int)(Time.time-NextLevel.startTime));
 			panel.SetActive (true);
@@ -89,30 +92,38 @@ public class NewCameraFollow : MonoBehaviour {
 		//Keeps checking if stuff in PauseMenu(); is happening
 		PauseMenu ();
 		
-		
+		// Sets camera size, zooming in and out.
 		if (Input.GetAxis("Mouse ScrollWheel") > 0) // forward
 			GetComponent<Camera> ().orthographicSize = Mathf.Max(GetComponent<Camera> ().orthographicSize-1, 7);
 		else if (Input.GetAxis("Mouse ScrollWheel") < 0) // backward
 			GetComponent<Camera> ().orthographicSize = Mathf.Min(GetComponent<Camera> ().orthographicSize+1, 15);
 	}
 	
-	public void PauseMenu(){
+	public void PauseMenu()
+	{
 		//With escape key opens up the pause menu and pauses the game
 		
-		if (Input.GetKeyDown (KeyCode.Return)) {
+		if (Input.GetKeyDown (KeyCode.Return)) 
+		{
 			if (!justEnded)
 				ResumeGame ();
 			else EnterMenu();
 		}
-		if (Input.GetKeyDown (KeyCode.Escape)||Input.GetKeyDown (KeyCode.Pause)||Input.GetKeyDown (KeyCode.Q)||justEnded){
+		if (Input.GetKeyDown (KeyCode.Escape)||Input.GetKeyDown (KeyCode.Pause)||Input.GetKeyDown (KeyCode.Q)||justEnded)
+		{
 			Time.timeScale = 0;
 			// activating panel
-			if(!panel.activeSelf){
-				if (justStarted) {
+			if(!panel.activeSelf)
+			{
+			/*
+				if (justStarted) 
+				{
 					
 				}
-				else{
-					if (justEnded){
+				else
+				{
+					if (justEnded)
+					{
 						txtPausemenuTitle.text = "Keep going.";
 						btnContinue.SetActive (false);
 						btnRestart.SetActive (false);
@@ -125,32 +136,38 @@ public class NewCameraFollow : MonoBehaviour {
 						PlayerPrefs.DeleteKey("Checkpoint");
 						PlayerPrefs.DeleteKey("Checkscore");
 					}
-					else{
+					else
+					{
 						txtPausemenuTitle.text = "Patience is a virtue.";
 						txtContinue.text = "Continue";
 						btnContinue.SetActive (true);
 						btnRestart.SetActive (true);
 					}
 				}
+			*/
 				panel.SetActive (true);
 			}
 			else if (!NewPlayerMove.dead&&!justEnded)
 				ResumeGame ();
 		}
+
 		justStarted = false;
 	}
 	
 	//Button is linked to this and when pressing continue in the pause menu it continues the game
-	public void ResumeGame(){
+	public void ResumeGame()
+	{
 		panel.SetActive(false);
 		Time.timeScale=1;
 	}
 	
-	public void EnterMenu(){
+	public void EnterMenu()
+	{
 		RestartLevel();
 		Application.LoadLevel("0. Menu");
 	}
-	public void RestartLevel(){
+	public void RestartLevel()
+	{
 		Application.LoadLevel(Application.loadedLevelName); // need to change it for any next level somehow
 	}
 }

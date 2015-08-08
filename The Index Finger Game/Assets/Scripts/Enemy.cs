@@ -2,17 +2,22 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
+	//Points which towards the enemy will be raycasting.
 	public Transform upLook;
 	public Transform straightLook;
 	public Transform downLook;
-	public Transform Player;
+	//Looks where the player is and also a bool to check if it is on sights or not
+	private Transform Player;
 	private bool PlayerInSight = false;
+	//Range of the Raycast
 	private float SightRange = 5f;
+	//Animator for enemy
 	private Animator anim;
+	//Gun child
 	public GameObject Gun;
 	Transform EnemyGun;
+	//Bool to see if enemy is dead
 	private bool guardisdead = false;
-	RaycastHit2D hit;
 
 	public GameObject Guard;
 	
@@ -45,6 +50,7 @@ public class Enemy : MonoBehaviour {
 		rb2d=gameObject.GetComponent<Rigidbody2D>();
 		enemyscript = gameObject.GetComponent<Enemy> ();
 		death = gameObject.GetComponent<AudioSource> ();
+		Player = GameObject.Find ("Character").transform;
 	}
 	
 	// Update is called once per frame
@@ -56,11 +62,6 @@ public class Enemy : MonoBehaviour {
 
 		//Checks if the enemy sees player
 		IcanSeeYou ();
-		//Sets where enemy is facing on the static bool
-		/*if (facingLeft == true)
-			isFacingLeft = true;
-		else if (facingLeft == false)
-			isFacingLeft = false;*/
 
 
 		//Makes walk towards point with certain movespeed
@@ -68,7 +69,6 @@ public class Enemy : MonoBehaviour {
 		//Checks out where the guard is and changes direction when reaching other point
 		if (Guard.transform.position == currentposition.position) 
 		{
-			//Debug.Log("GuardHere");
 			pointSelection++;
 			
 			//Checks out lenght of array and if it is at the last point
@@ -81,6 +81,15 @@ public class Enemy : MonoBehaviour {
 			Invoke("WalkDirection", 0f);
 		}
 
+		if (facingLeft == true) 
+		{
+			isFacingLeft = true;
+		} 
+		else 
+		{
+			isFacingLeft = false;
+		}
+
 	}
 
 	void IcanSeeYou()
@@ -91,10 +100,12 @@ public class Enemy : MonoBehaviour {
 		Vector2 upLookPos = (upLook.transform.position - transform.position).normalized;
 		Vector2 straightLookPos = (straightLook.transform.position - transform.position).normalized;
 		Vector2 downLookPos = (downLook.transform.position - transform.position).normalized;
+
 		//To debug the sight
-		Debug.DrawRay(transform.position, upLookPos * SightRange, Color.red);
+		/*Debug.DrawRay(transform.position, upLookPos * SightRange, Color.red);
 		Debug.DrawRay(transform.position, downLookPos * SightRange, Color.red);
-		Debug.DrawRay(transform.position, straightLookPos * SightRange, Color.red);
+		Debug.DrawRay(transform.position, straightLookPos * SightRange, Color.red);*/
+
 		//Player is in view, activates the gun hand and also stops
 		if (PlayerInSight == true){
 			Gun.SetActive(true);
@@ -106,19 +117,43 @@ public class Enemy : MonoBehaviour {
 		else 
 		{
 			if(setSpeed != 0)
-				moveSpeed = 1;
+				moveSpeed = setSpeed;
+
 			Gun.SetActive (false);
 		}
 
 
 		//Checks if player will be hitting the raycasts and then sets true to fact that player is in view of the enemy
-		if (Physics2D.Raycast (transform.position, downLookPos, SightRange)|| Physics2D.Raycast (transform.position, upLookPos, SightRange)|| Physics2D.Raycast (transform.position, straightLookPos, SightRange)) 
+		if (Physics2D.Raycast (transform.position, downLookPos, SightRange)) 
 		{
-			PlayerInSight = true;
-			//Debug.Log ("Player in sight!");
-		} 
+			RaycastHit2D hit1 = Physics2D.Raycast (transform.position, downLookPos, SightRange);
+
+			if(hit1.collider.tag == "Player")
+			{
+				PlayerInSight = true;
+			}
+		}
+		else if(Physics2D.Raycast (transform.position, upLookPos, SightRange))
+		{
+			RaycastHit2D hit2 = Physics2D.Raycast (transform.position, upLookPos, SightRange);
+			if(hit2.collider.tag == "Player")
+			{
+				PlayerInSight = true;
+			}
+
+		}
+		else if(Physics2D.Raycast (transform.position, straightLookPos, SightRange))
+		{
+			RaycastHit2D hit3 = Physics2D.Raycast (transform.position, straightLookPos, SightRange);
+			if(hit3.collider.tag == "Player")
+			{
+				PlayerInSight = true;
+			}
+		}
 		else
 			PlayerInSight = false;
+
+
 	}
 
 	void WalkDirection()
@@ -139,19 +174,13 @@ public class Enemy : MonoBehaviour {
 			EnemyGun.localScale = new Vector2(-1f, -1f);
 		}
 	}
+
 	void OnTriggerEnter2D(Collider2D coll){
 		//Checks if player hits it with the collider kill object and murders the enemy if so.
 		if (coll.gameObject.tag == "EnemyKill")
 		{
-			/*guardisdead = true;
-			Debug.Log("Hit");
-			enemyscript.enabled = false;
-			rb2d.constraints = RigidbodyConstraints2D.None;
-			rb2d.AddForce(Vector2.up * 300);
-			rb2d.AddForce(Vector2.right * 300);*/
-			//rb2d.rotation
-			StartCoroutine(WaitABit());
 
+			StartCoroutine(WaitABit());
 		}
 		
 		
@@ -159,13 +188,12 @@ public class Enemy : MonoBehaviour {
 
 	IEnumerator WaitABit()
 	{
+		//Kills the guards script with slight delay so animation and death sound have time to trigger and play out.
 		guardisdead = true;
 		death.Play ();
 		yield return new WaitForSeconds(0.1f);
 		enemyscript.enabled = false;
-		//rb2d.constraints = RigidbodyConstraints2D.None;
 		rb2d.AddForce(Vector2.up * 10);
 		rb2d.AddForce(Vector2.right * 10);
-		//rb2d.rotation
 	}
 }

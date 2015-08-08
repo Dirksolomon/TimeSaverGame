@@ -25,8 +25,10 @@ public class MovingPlatform : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		//Makes platform to move towards certain point
 		platform.transform.position = Vector2.MoveTowards (platform.transform.position, currentposition.position, Time.deltaTime * moveSpeed);
 
+		//Checks if the platform reaches certain point, sets new point to go until there are no points and it just goes back to first
 		if (platform.transform.position == currentposition.position) 
 		{
 			pointSelection++;
@@ -41,7 +43,7 @@ public class MovingPlatform : MonoBehaviour {
 		}
 
 	}
-	
+	//When players collider bumps into this ones, sets player as child object
 	void OnCollisionEnter2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Player") 
@@ -50,6 +52,7 @@ public class MovingPlatform : MonoBehaviour {
 			MakeChild();
 		}
 	}
+	//If players collider does not bump against this one it removes player as child object
 	void OnCollisionExit2D(Collision2D coll)
 	{
 		if (coll.gameObject.tag == "Player") 
@@ -59,10 +62,12 @@ public class MovingPlatform : MonoBehaviour {
 		}
 
 	}
+	//Makes player the child of the object so it travels with it
 	void MakeChild()
 	{
 		player.transform.parent = platform.transform;
 	}
+	//Removes the player as child object
 	void RemoveChild()
 	{
 		player.transform.parent = null;

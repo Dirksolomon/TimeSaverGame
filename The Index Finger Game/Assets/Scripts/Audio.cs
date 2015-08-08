@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Audio : MonoBehaviour {
-	private AudioSource[] audio;
+	private AudioSource[] sound;
 	private AudioSource run;
 	private AudioSource shoot;
 	// Use this for initialization
@@ -15,18 +15,18 @@ public class Audio : MonoBehaviour {
 	void Update () 
 	{
 	}
-
+	//This is audio script for animation sounds.
 	void Running()
 	{
-		audio = gameObject.GetComponents<AudioSource> ();
+		sound = gameObject.GetComponents<AudioSource> ();
 
-		run = audio [1];
+		run = sound [1];
 		run.Play ();
 	}
 	void Attacking()
 	{
-		audio = gameObject.GetComponents<AudioSource> ();
-		shoot = audio [0];
+		sound = gameObject.GetComponents<AudioSource> ();
+		shoot = sound [0];
 		shoot.Play ();
 	}
 }

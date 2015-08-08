@@ -6,8 +6,10 @@ public class StartScreenScript : MonoBehaviour {
 	static bool sawOnce = false;
 
 	// Use this for initialization
-	void Start () {
-		if(!sawOnce) {
+	void Start () 
+	{
+		if(!sawOnce) 
+		{
 			GetComponent<SpriteRenderer>().enabled = true;
 			Time.timeScale = 0;
 		}
@@ -16,8 +18,10 @@ public class StartScreenScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if(Time.timeScale==0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) ) {
+	void Update () 
+	{
+		if(Time.timeScale==0 && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) ) 
+		{
 			Time.timeScale = 1;
 			GetComponent<SpriteRenderer>().enabled = false;
 

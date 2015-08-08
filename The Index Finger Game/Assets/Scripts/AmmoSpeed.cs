@@ -11,16 +11,12 @@ public class AmmoSpeed : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (Enemy.isFacingLeft == true) 
-		{
+	void Update () 
+	{
+			//Makes the ammo travel
 			transform.Translate (Vector2.right * Time.deltaTime * moveSpeed * 1);
+			//Destroys the ammo after 1 tick
 			Destroy (gameObject, 1);
-		} 
-		else if (Enemy.isFacingLeft == false)
-		{
-			transform.Translate (Vector2.right * Time.deltaTime * moveSpeed * 1);
-			Destroy (gameObject, 1);
-		}
+
 	}
 }
