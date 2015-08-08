@@ -94,8 +94,6 @@ public class NewPlayerMove : MonoBehaviour {
 			
 			
 			// Checking some speed so the player does not fly off the screen, limiting it to certain number
-			// Not used now as the player will slide otherwise, will leave it here if there comes any need to play with it
-		/*
 			if (rb2d.velocity.x > maxspeed)
 			{
 				rb2d.velocity = new Vector2(maxspeed, rb2d.velocity.y);
@@ -104,7 +102,6 @@ public class NewPlayerMove : MonoBehaviour {
 			{
 				rb2d.velocity = new Vector2(-maxspeed, rb2d.velocity.y);
 			}
-		*/
 			//Checks if crouching key is not pressed and there is nothing above the character to stand
 			if 	(
 				!(Input.GetKey(KeyCode.S) 

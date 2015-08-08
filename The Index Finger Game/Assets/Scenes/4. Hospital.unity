@@ -6556,7 +6556,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11486212, guid: 4ae7f010ab49bbf439b445b38eb5c6a6, type: 2}
       propertyPath: setSpeed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 429860, guid: 4ae7f010ab49bbf439b445b38eb5c6a6, type: 2}
       propertyPath: m_LocalPosition.z
