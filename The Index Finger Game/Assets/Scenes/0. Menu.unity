@@ -608,7 +608,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 127262, guid: 79ee6c149fa1719488a6f992e19ab5da, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11491920, guid: 79ee6c149fa1719488a6f992e19ab5da, type: 2}
       propertyPath: m_Text
@@ -617,9 +617,7 @@ Prefab:
 
         We worked really hard for these two weeks so please enjoy.
 
-        It is an obligatory part.
-
-        Thanks to JDB Artist for letting us use music on game development.'
+        It is an obligatory part.'
       objectReference: {fileID: 0}
     - target: {fileID: 11400936, guid: 79ee6c149fa1719488a6f992e19ab5da, type: 2}
       propertyPath: m_Sprite
